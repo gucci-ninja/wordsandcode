@@ -1,6 +1,5 @@
-baseurl = "https://gucci-ninja.github.io/wordsandcode/"
+baseurl = "https://gucci-ninja.github.io"
 languageCode = "en-us"
 title = "Words and Code"
 theme = "hugo-paper"
-publishdir = "gucci-ninja.github.io/wordsandcode"
 
