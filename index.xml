@@ -6,10 +6,19 @@
     <description>Recent content on Words and Code</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Aug 2018 02:31:17 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 07 Aug 2018 22:16:16 -0400</lastBuildDate>
     
 	<atom:link href="https://gucci-ninja.github.io/wordsandcode/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>First Day</title>
+      <link>https://gucci-ninja.github.io/wordsandcode/post/firstday/</link>
+      <pubDate>Tue, 07 Aug 2018 22:16:16 -0400</pubDate>
+      
+      <guid>https://gucci-ninja.github.io/wordsandcode/post/firstday/</guid>
+      <description>My First Day at Bell First Impressions I left my house early like any responsible employee on their first day of work and arrived more than half an hour early. After a lot of waiting and small talk, the new interns were met by the current ones. My first impression was that the people at Bell are extremely welcoming. Everyone wants you to succeed and learn new things along the way.</description>
+    </item>
     
     <item>
       <title>Getting Started</title>
