@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Words and Code</title>
+    <title>Words &amp; Code</title>
     <link>https://gucci-ninja.github.io/wordsandcode/</link>
-    <description>Recent content on Words and Code</description>
+    <description>Recent content on Words &amp; Code</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Aug 2018 02:31:17 -0400</lastBuildDate><atom:link href="https://gucci-ninja.github.io/wordsandcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Oct 2020 20:46:12 -0400</lastBuildDate><atom:link href="https://gucci-ninja.github.io/wordsandcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A-Z Tech to be thankful for in 2020</title>
+      <link>https://gucci-ninja.github.io/wordsandcode/post/thanksgiving/</link>
+      <pubDate>Wed, 14 Oct 2020 20:46:12 -0400</pubDate>
+      
+      <guid>https://gucci-ninja.github.io/wordsandcode/post/thanksgiving/</guid>
+      <description>Hi everyone! This Thanksgiving my mom did an activity with her grade 2’s where they went around their virtual classroom listing things they were thankful for from A-Z. This inspired me to write my very first Medium article on technologies that I’m thankful for this Thanksgiving :) These range from tech I’ve used to tech I am interested in using in the future.
+AWS I started using Amazon’s web services earlier this year to host a project.</description>
+    </item>
+    
     <item>
       <title>Getting Started</title>
       <link>https://gucci-ninja.github.io/wordsandcode/post/getting_started/</link>
@@ -14,6 +24,15 @@
       
       <guid>https://gucci-ninja.github.io/wordsandcode/post/getting_started/</guid>
       <description>Since my co-op starts next week I thought it would be the perfect time to set up my blog so I can document my experiences. I hope I can capture what I learn every week and reflect on my time as an intern. Maybe in a year I will be showing this to the new set of co-ops.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://gucci-ninja.github.io/wordsandcode/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gucci-ninja.github.io/wordsandcode/about/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lacinia lorem quis sodales auctor. Donec bibendum odio leo, bibendum iaculis lectus dapibus sit amet. Etiam ut euismod lectus, vel finibus metus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer quis vestibulum justo. Duis scelerisque ullamcorper sem, eget congue lorem ultrices mattis. Nam ut mollis tellus, id facilisis turpis. Duis ac egestas mi, a mattis dolor. Curabitur vestibulum est nec tortor hendrerit, vehicula malesuada quam tempor.</description>
     </item>
     
   </channel>

@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Words and Code</title>
+    <title>Posts on Words &amp; Code</title>
     <link>https://gucci-ninja.github.io/wordsandcode/post/</link>
-    <description>Recent content in Posts on Words and Code</description>
+    <description>Recent content in Posts on Words &amp; Code</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Aug 2018 02:31:17 -0400</lastBuildDate><atom:link href="https://gucci-ninja.github.io/wordsandcode/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Oct 2020 20:46:12 -0400</lastBuildDate><atom:link href="https://gucci-ninja.github.io/wordsandcode/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A-Z Tech to be thankful for in 2020</title>
+      <link>https://gucci-ninja.github.io/wordsandcode/post/thanksgiving/</link>
+      <pubDate>Wed, 14 Oct 2020 20:46:12 -0400</pubDate>
+      
+      <guid>https://gucci-ninja.github.io/wordsandcode/post/thanksgiving/</guid>
+      <description>Hi everyone! This Thanksgiving my mom did an activity with her grade 2’s where they went around their virtual classroom listing things they were thankful for from A-Z. This inspired me to write my very first Medium article on technologies that I’m thankful for this Thanksgiving :) These range from tech I’ve used to tech I am interested in using in the future.
+AWS I started using Amazon’s web services earlier this year to host a project.</description>
+    </item>
+    
     <item>
       <title>Getting Started</title>
       <link>https://gucci-ninja.github.io/wordsandcode/post/getting_started/</link>
