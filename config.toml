@@ -1,9 +1,10 @@
 baseurl = "https://gucci-ninja.github.io/wordsandcode/"
 languageCode = "en-us"
-title = "Words and Code"
+title = "Words & Code"
 theme = "m10c"
 paginate = 8
 publishDir = "docs"
+enableInlineShortcodes = true
 
 [menu]
   [[menu.main]]
@@ -26,6 +27,8 @@ publishDir = "docs"
   author = "John Doe"
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   menu_item_separator = " - "
+  avatar = "/img/avatar.jpg"
+  favicon = "https://pngimage.net/wp-content/uploads/2018/05/bullet-style-png-3-300x200.png"
   [[params.social]]
     icon = "github"
     name = "Github"
@@ -36,12 +39,12 @@ publishDir = "docs"
     url = "https://twitter.com/gohugoio"
 
   # Default theme
-  #[params.style]
-  #  darkestColor = "#242930"
-  #  darkColor = "#353b43"
-  #  lightColor = "#afbac4"
-  #  lightestColor = "#ffffff"
-  #  primaryColor = "#57cc8a"
+  [params.style]
+   darkestColor = "#242930"
+   darkColor = "#353b43"
+   lightColor = "#afbac4"
+   lightestColor = "#F4B648"
+   primaryColor = "#F4B648"
 
   # Green theme
   #[params.style]
