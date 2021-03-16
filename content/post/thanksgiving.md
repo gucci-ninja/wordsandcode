@@ -5,7 +5,7 @@ menu = "main"
 +++
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=gucci-ninja-thanksgiving)
 
-![](/img/tech.jpg)
+![](../../img/tech.jpg)
 
 Hi everyone! This Thanksgiving my mom did an activity with her grade 2’s where they went around their virtual classroom listing things they were thankful for from A-Z. This inspired me to write my very first Medium article on technologies that I’m thankful for this Thanksgiving :) These range from tech I’ve used to tech I am interested in using in the future.
 

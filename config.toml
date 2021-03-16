@@ -4,7 +4,7 @@ title = "Words & Code"
 theme = "m10c"
 paginate = 8
 publishDir = "docs"
-enableInlineShortcodes = true
+enableEmoji=true
 
 [menu]
   [[menu.main]]
@@ -13,30 +13,29 @@ enableInlineShortcodes = true
     url = "/"
     weight = 1
   [[menu.main]]
-    identifier = "tags"
-    name = "Tags"
-    url = "/tags/"
-    weight = 2
-  [[menu.main]]
     identifier = "about"
     name = "About"
     url = "/about/"
     weight = 3
 
 [params]
-  author = "John Doe"
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  author = "Suhavi Sandhu"
+  description = "Software engineer passionate about building powerful, useful and open source systems. Thanks for dropping by! 💛"
   menu_item_separator = " - "
   avatar = "/img/avatar.jpg"
   favicon = "https://pngimage.net/wp-content/uploads/2018/05/bullet-style-png-3-300x200.png"
   [[params.social]]
     icon = "github"
     name = "Github"
-    url = "https://github.com/gohugoio"
+    url = "https://github.com/gucci-ninja"
   [[params.social]]
     icon = "twitter"
     name = "Twitter"
-    url = "https://twitter.com/gohugoio"
+    url = "https://twitter.com/SuhaviSandhu"
+  [[params.social]]
+    icon = "linkedin"
+    name = "LinkedIn"
+    url = "https://www.linkedin.com/in/suhavi/"
 
   # Default theme
   [params.style]
