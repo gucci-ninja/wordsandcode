@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Words &amp; Code</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Oct 2020 20:46:12 -0400</lastBuildDate><atom:link href="https://gucci-ninja.github.io/wordsandcode/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Mar 2021 02:14:58 -0400</lastBuildDate><atom:link href="https://gucci-ninja.github.io/wordsandcode/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to start contributing to open source</title>
+      <link>https://gucci-ninja.github.io/wordsandcode/post/open_source/</link>
+      <pubDate>Mon, 15 Mar 2021 02:14:58 -0400</pubDate>
+      
+      <guid>https://gucci-ninja.github.io/wordsandcode/post/open_source/</guid>
+      <description>Hi everyone! Recently I made my first open source contribution and wanted to share my experience as well as any tips I have for developers getting into open source development.
+Step 1 — Finding motivation Due to COVID-19, I realized how much we rely on technology to bring people together. Then I thought about how much of that tech is made possible due to open source. I feel so grateful that I have access to and the potential to contribute to all this tech.</description>
+    </item>
+    
     <item>
       <title>A-Z Tech to be thankful for in 2020</title>
       <link>https://gucci-ninja.github.io/wordsandcode/post/thanksgiving/</link>
@@ -18,12 +28,13 @@ AWS I started using Amazon’s web services earlier this year to host a project.
     </item>
     
     <item>
-      <title>Getting Started</title>
+      <title>Co-op</title>
       <link>https://gucci-ninja.github.io/wordsandcode/post/getting_started/</link>
       <pubDate>Fri, 03 Aug 2018 02:31:17 -0400</pubDate>
       
       <guid>https://gucci-ninja.github.io/wordsandcode/post/getting_started/</guid>
-      <description>Since my co-op starts next week I thought it would be the perfect time to set up my blog so I can document my experiences. I hope I can capture what I learn every week and reflect on my time as an intern. Maybe in a year I will be showing this to the new set of co-ops.</description>
+      <description>Since my co-op starts next week I thought it would be the perfect time to set up my blog so I can document my experiences. I hope I can capture what I learn every week and reflect on my time as an intern. Maybe in a year I will be showing this to the new set of co-ops.
+My First Day at Bell I left my house early like any responsible employee on their first day of work and arrived more than half an hour early.</description>
     </item>
     
   </channel>
