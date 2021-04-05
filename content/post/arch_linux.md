@@ -1,30 +1,32 @@
 +++
-title =  "Arch_linux"
+title =  "Your Guide to Arch Linux"
 date =  2021-03-17T00:22:09-04:00
 menu = "main"
 +++
 
-# Current Setup
+![](../../static/img/arch.png)
 
-![](shell.png)
+Hi everyone! This guide is meant to take you through the process of setting up Arch Linux. It's more of a set of guidelines rather than strict procedure. I'm hoping to give new or potential users an idea of what it's like to dual boot your computer with Arch Linux. 
 
-# Introduction
+I started using Arch in 2018 after getting tired of Ubuntu and since then I have dealt with my fair share of problems (corrupted ISO, problematic updates, bluetooth nightmares). However, I can say with confidence that using Arch has given me a better understanding and appreciation for operating systems as a whole. There are some things I used to take for granted - like the wifi menu that comes pre-installed with Windows or Mac OS - that I had to install and configure when it came to Arch Linux.
 
-Along with my dotfiles, this will also document how I installed Arch Linux - in caseI have to do it again.
-This is my second installation because my first one, for whatever reason, died and I didn't even have my dotfiles backed up to git. Go [here](#help) if you need help.
+I decided to create this guide for myself when my first installation went south and I lost everything because I didn't have my dotfiles backed up. So the second time around I created [this repo](https://github.com/gucci-ninja/.dotfiles.git)
 
-# Step 1 - Booting the ISO
-I already have an ISO image of Arch Linux on a USB so I just plugged that in, spammed F2/F3 repeatedly until I saw the boot menu.
-Then I selected the option to boot into the USB.
+# Step 0 - Preparation
+If you are dual-booting you are essentially telling your current operating system to stop hogging all the space on your computer and make room for a new OS. So figure out what disk management tool your current OS uses and make a `partition` for your new OS. I went with 100GB, which should be fairly sufficient unless you know you're going to be storing a lot of stuff.
+# Step 1 - Securing the ISO
+When you decide to make the switch to Arch you are going to need an image of the operating system. This comes in the form of a `.iso` file. You are going to have to flash this image file onto a good USB (or a CD if that's your jam and you still have a CD player..). If you are on Windows you can use a software called `Rufus` which lets you select your USB and flash an ISO image onto it. 
 
-# Step 2 - Mount system
-This is actually a bunch of steps but I *usually* do them all at once
+# Step 2 - Booting the ISO
+Once you have a fresh image of Arch on your ISO, you want to plug the USB or whatever you're using into your computer of choice. Then, depending on what computer you're working with, you need to press some key(s) at startup so you're transported to the boot menu. This will prevent your default OS from loading up. For me, I spammed F2/F3 repeatedly until I saw the boot menu. Then, I selected the option to boot into the USB. Remember, if you mess up, it's not the end of the world, just possibly the end of your PC :D JK
+# Step 3 - Mount your system
+This is actually a bunch of steps but I *usually* do them all at once. It's kind of intimidating if it's your first time because you just see a black screen with a weird font of white text. 
 
 ```
-# To see partitions
+# To see partitions (like the one you made in Step 0)
 fdisk -l
 ```
-My EFI disk is sda1 and the arch one is sda5.
+My EFI disk is sda1 and the Arch one is sda5. I know this because sda5 says exactly 100GB, which is how much I allocated to it.
 
 ```
 # To format sda5
@@ -48,13 +50,14 @@ genfstab -p /mnt >> /mnt/etc/fstab
 ```
 
 # Step 4 - Get out of the USB
-
+At this point you have sucessfully taken the image on your USB and mounted it onto your computer. This step is basically the equivalent of `cd` into your new directory. Still keep the USB plugged in though, we're not done with it yet.
 ```
 # Chroot into arch linux
 arch-chroot /mnt
 ```
 
 # Step 5 - Wifi
+Most important step because without wifi you can't browse memes.
 
 ```
 pacman -S networkmanager
@@ -64,7 +67,7 @@ systemctl enable NetworkManager
 ```
 
 # Step 6 - Bootloader
-You need something to load your OS each time so get grub.
+You need something to load your OS each time you restart your computer so get grub.
 
 ```
 # Download grub
@@ -79,6 +82,7 @@ grub -mkconfig -o /boot/grub/grub.cfg
 ```
 
 # Step 7 - Set Up Some Boring Things
+Like date, timezone, clock, etc
 
 ```
 timedatectl set-ntp true
@@ -115,7 +119,7 @@ Now you can take out the USB.
 :sunglasses:
 
 # Step 11 - Users
-After rebooting login as root and create a user.
+After rebooting, login as root and create a user.
 
 ```
 useradd -m -g wheel suhavi
@@ -128,14 +132,19 @@ vim /etc/sudoers
 ```
 
 # Step 12 - Xorg
-This is a graphical server.
+This is a graphical server. So you don't have to look at a blank sceen all the time.
 ```
 pacman -S xorg-server xorg-init
 # Type startx to start it
 ```
 
 # Step 13 - Terminal + Shell + Git + VS Code
-- fish is a spicy shell
+At this point the steps are very general. It's important to do your research to see which terminal, shell and editor you want. These are the ones I decided to go with
+- terminal: termite
+- shell: fish
+- editor: VS code
+- version control: git
+
 ```
 pacman -S termite fish git code
 
@@ -151,9 +160,9 @@ if status is-login
 end
 
 ```
-
-# Step 14 - Window MANAGER >:)))))
-It's time to get bspwm
+Configs are your best friend with Linux. Located under .config at the root level, they contain rules for all the customizations you want to make to your operating system. Take a look at the files in this folder to get an idea of the kinds of changes you can make.
+# Step 14 - Window Manager
+There are lots of choices for window manager, I personally went with bspwm because I like binary trees. I also got dmenu, which is a search bar that lets you type commands or applications to open. It can be accessed with (cmd/windows key) + spacebar. However, in order for these hotkeys and shortcuts to work you need sxhkd. Lastly, I installed some fonts!
 
 ```
 pacman -S bspwm dmenu sxhkd
