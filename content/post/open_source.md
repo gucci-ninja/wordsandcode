@@ -1,6 +1,6 @@
 +++
 title =  "How to start contributing to open source"
-date =  2021-03-15T02:14:58-04:00
+date =  2021-01-18T02:14:58-04:00
 menu = "main"
 +++
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=gucci-ninja-open-source)
