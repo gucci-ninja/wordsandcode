@@ -6,11 +6,21 @@
     <description>Recent content in Posts on Words &amp; Code</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Mar 2021 02:14:58 -0400</lastBuildDate><atom:link href="https://gucci-ninja.github.io/wordsandcode/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Mar 2021 00:22:09 -0400</lastBuildDate><atom:link href="https://gucci-ninja.github.io/wordsandcode/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Your Guide to Arch Linux</title>
+      <link>https://gucci-ninja.github.io/wordsandcode/post/arch_linux/</link>
+      <pubDate>Wed, 17 Mar 2021 00:22:09 -0400</pubDate>
+      
+      <guid>https://gucci-ninja.github.io/wordsandcode/post/arch_linux/</guid>
+      <description>Hi everyone! This guide is meant to take you through the process of setting up Arch Linux. It&amp;rsquo;s more of a set of guidelines rather than strict procedure. I&amp;rsquo;m hoping to give new or potential users an idea of what it&amp;rsquo;s like to dual boot your computer with Arch Linux.
+I started using Arch in 2018 after getting tired of Ubuntu and since then I have dealt with my fair share of problems (corrupted ISO, problematic updates, bluetooth nightmares).</description>
+    </item>
+    
     <item>
       <title>How to start contributing to open source</title>
       <link>https://gucci-ninja.github.io/wordsandcode/post/open_source/</link>
-      <pubDate>Mon, 15 Mar 2021 02:14:58 -0400</pubDate>
+      <pubDate>Mon, 18 Jan 2021 02:14:58 -0400</pubDate>
       
       <guid>https://gucci-ninja.github.io/wordsandcode/post/open_source/</guid>
       <description>Hi everyone! Recently I made my first open source contribution and wanted to share my experience as well as any tips I have for developers getting into open source development.

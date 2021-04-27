@@ -5,7 +5,7 @@ theme = "m10c"
 paginate = 8
 publishDir = "docs"
 enableEmoji=true
-googleAnalytics=UA-194918019-1
+googleAnalytics="UA-194918019-1"
 
 [menu]
   [[menu.main]]
@@ -37,6 +37,7 @@ googleAnalytics=UA-194918019-1
     icon = "linkedin"
     name = "LinkedIn"
     url = "https://www.linkedin.com/in/suhavi/"
+  googleAnalytics="UA-194918019-1"
 
   # Default theme
   [params.style]

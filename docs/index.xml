@@ -6,11 +6,21 @@
     <description>Recent content on Words &amp; Code</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Mar 2021 02:14:58 -0400</lastBuildDate><atom:link href="https://gucci-ninja.github.io/wordsandcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Mar 2021 00:22:09 -0400</lastBuildDate><atom:link href="https://gucci-ninja.github.io/wordsandcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Your Guide to Arch Linux</title>
+      <link>https://gucci-ninja.github.io/wordsandcode/post/arch_linux/</link>
+      <pubDate>Wed, 17 Mar 2021 00:22:09 -0400</pubDate>
+      
+      <guid>https://gucci-ninja.github.io/wordsandcode/post/arch_linux/</guid>
+      <description>Hi everyone! This guide is meant to take you through the process of setting up Arch Linux. It&amp;rsquo;s more of a set of guidelines rather than strict procedure. I&amp;rsquo;m hoping to give new or potential users an idea of what it&amp;rsquo;s like to dual boot your computer with Arch Linux.
+I started using Arch in 2018 after getting tired of Ubuntu and since then I have dealt with my fair share of problems (corrupted ISO, problematic updates, bluetooth nightmares).</description>
+    </item>
+    
     <item>
       <title>How to start contributing to open source</title>
       <link>https://gucci-ninja.github.io/wordsandcode/post/open_source/</link>
-      <pubDate>Mon, 15 Mar 2021 02:14:58 -0400</pubDate>
+      <pubDate>Mon, 18 Jan 2021 02:14:58 -0400</pubDate>
       
       <guid>https://gucci-ninja.github.io/wordsandcode/post/open_source/</guid>
       <description>Hi everyone! Recently I made my first open source contribution and wanted to share my experience as well as any tips I have for developers getting into open source development.
@@ -43,9 +53,8 @@ My First Day at Bell I left my house early like any responsible employee on thei
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://gucci-ninja.github.io/wordsandcode/about/</guid>
-      <description>Hi, welcome to my blog! I like to write about anything tech-related that I find interesting. I&amp;rsquo;m passionate about making tech more accessible and I&amp;rsquo;m a big advocate for open source.
-I graduated from McMaster University in 2020 with a degree in software engineering. Previously I&amp;rsquo;ve interned at Bell and volunteered for hackathons like DeltaHacks, SheHacks and ElleHacks. Right now I&amp;rsquo;m working at Guidewire, building scalable and reliable infrastructure!
-Some other (non-tech) hobbies of mine are</description>
+      <description>Hi, I&amp;rsquo;m Suhavi Sandhu, but my online name is usually gucci-ninja. My pronouns are she/her. I&amp;rsquo;m a software engineer in Toronto, currently working at Guidewire, where I work on building scalable and robust infrastructure. On this blog I usually talk about my personal projects and tech-related topics that I find interesting.
+I graduated with a software engineering degree in 2020 and since then, I&amp;rsquo;ve been trying to find my place in the tech community.</description>
     </item>
     
   </channel>
