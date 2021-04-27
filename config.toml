@@ -5,6 +5,7 @@ theme = "m10c"
 paginate = 8
 publishDir = "docs"
 enableEmoji=true
+googleAnalytics=UA-194918019-1
 
 [menu]
   [[menu.main]]
