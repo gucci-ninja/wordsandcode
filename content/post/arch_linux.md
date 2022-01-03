@@ -4,7 +4,7 @@ date =  2021-03-17T00:22:09-04:00
 menu = "main"
 +++
 
-![](../../static/img/arch.png)
+![](../../img/arch.png)
 
 Hi everyone! This guide is meant to take you through the process of setting up Arch Linux. It's more of a set of guidelines rather than strict procedure. I'm hoping to give new or potential users an idea of what it's like to dual boot your computer with Arch Linux. 
 
