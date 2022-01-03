@@ -14,36 +14,61 @@ I decided to create this guide for myself when my first installation went south 
 
 # Step 0 - Preparation
 If you are dual-booting you are essentially telling your current operating system to stop hogging all the space on your computer and make room for a new OS. So figure out what disk management tool your current OS uses and make a `partition` for your new OS. I went with 100GB, which should be fairly sufficient unless you know you're going to be storing a lot of stuff.
+
+For me, I used the `diskmgmt.msc` utility on Windows. From there I 'shrunk' my C drive, which is the biggest one. I shrunk it by 100GB. This created an **unallocated** partition, which means it is no longer affiliated with your current OS.
+
 # Step 1 - Securing the ISO
 When you decide to make the switch to Arch you are going to need an image of the operating system. This comes in the form of a `.iso` file. You are going to have to flash this image file onto a good USB (or a CD if that's your jam and you still have a CD player..). If you are on Windows you can use a software called `Rufus` which lets you select your USB and flash an ISO image onto it. 
+
+Here's a link to the [official Arch Linux ISOs](https://archlinux.org/download/)
 
 # Step 2 - Booting the ISO
 Once you have a fresh image of Arch on your ISO, you want to plug the USB or whatever you're using into your computer of choice. Then, depending on what computer you're working with, you need to press some key(s) at startup so you're transported to the boot menu. This will prevent your default OS from loading up. For me, I spammed F2/F3 repeatedly until I saw the boot menu. Then, I selected the option to boot into the USB. Remember, if you mess up, it's not the end of the world, just possibly the end of your PC :D JK
 # Step 3 - Mount your system
-This is actually a bunch of steps but I *usually* do them all at once. It's kind of intimidating if it's your first time because you just see a black screen with a weird font of white text. 
+At this point you are using Arch Linux. From here there are actually a bunch of steps but I *usually* do them all at once. It's kind of intimidating if it's your first time because you just see a black screen with a weird font of white text.
+
+Select `Arch Linux install medium` to load up the contents of your USB. This might take a while. 
 
 ```
+# To verify you are in boot mode
+ls /sys/firmware/efi/efivars
+
 # To see partitions (like the one you made in Step 0)
 fdisk -l
 ```
-My EFI disk is sda1 and the Arch one is sda5. I know this because sda5 says exactly 100GB, which is how much I allocated to it.
+
+My EFI disk is named `sda1` and the Arch one is `sda5`. I know this because `sda5` says exactly 100GB, which is how much I allocated to it. They may be under different names for you but it should indicate `EFI` on the EFI one and `/` on the one that will become your root directory. You **can** further partition the root directory using `fdisk` to allocate space for system encryption, RAID, etc. I personally don't need to worry about things like data redundancy and I wouldn't recommend if this is your first Linux build.
 
 ```
-# To format sda5
-mkfs ext4 -L "Arch Linux" /dev/sda5
+# To format your root partition
+mkfs.ext4 <arch_partition>
+# Here is what I ran for example, -L is for label
+mkfs.ext4 -L "Arch Linux" /dev/sda5
 
-# To mount the partition
+# To mount the partition, run mount <arch_partition> /mnt
 mount /dev/sda5 /mnt
 
-# Get wifi
+# Mount EFI partition, for me it was /dev/sda1
+mkdir -p /mnt/boot/efi
+mount <efi_partition> /mnt/boot/efi
+
+# If you are not on a wired connection, connect to wifi
+
+# Option A: comes with UI but outdated
 wifi-menu
 
-# Install base system
-pacstrap /mnt base base-devel vim
+# Option B - launches interactive iwd prompt
+iwctl
+[iwd] device list
+[iwd] station <device> scan
+[iwd] station <device> get-networks
+[iwd] station <device> connect <SSID>
 
-# Mount EFI partition
-mkdir -p /mnt/boot/efi
-mount /dev/sda1 /mnt/boot/efi
+# Update the system time and date
+timedatectl set-ntp true
+
+# Install base system
+pacstrap /mnt base linux linux-firmware vim
 
 # Generate the fstab (I have no clue what this is)
 genfstab -p /mnt >> /mnt/etc/fstab
@@ -51,16 +76,17 @@ genfstab -p /mnt >> /mnt/etc/fstab
 
 # Step 4 - Get out of the USB
 At this point you have sucessfully taken the image on your USB and mounted it onto your computer. This step is basically the equivalent of `cd` into your new directory. Still keep the USB plugged in though, we're not done with it yet.
+
 ```
-# Chroot into arch linux
+# Change root into arch linux
 arch-chroot /mnt
 ```
 
 # Step 5 - Wifi
-Most important step because without wifi you can't browse memes.
+Most important step because without wifi you can't browse memes. There are a lot of ways to do this and I had a lot of trouble with the ones that are mentioned in most tutorials so here's the one that I would recommend. [NetworkManager](https://wiki.archlinux.org/title/NetworkManager)
 
 ```
-pacman -S networkmanager
+pacman -Sy networkmanager
 
 # Automatically start it up
 systemctl enable NetworkManager
@@ -73,12 +99,15 @@ You need something to load your OS each time you restart your computer so get gr
 # Download grub
 pacman -S grub efibootmgr
 
+# Download something that allows Arch Linux to detect Windows as well
+pacman -S os-prober
+
 # Install grub into HDD
 grub-install /dev/sda
 ls -l /boot/efi/EFI/arch
 
 # Generate grub config
-grub -mkconfig -o /boot/grub/grub.cfg
+grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 # Step 7 - Set Up Some Boring Things
@@ -134,14 +163,14 @@ vim /etc/sudoers
 # Step 12 - Xorg
 This is a graphical server. So you don't have to look at a blank sceen all the time.
 ```
-pacman -S xorg-server xorg-init
+pacman -S xorg-server xorg
 # Type startx to start it
 ```
 
 # Step 13 - Terminal + Shell + Git + VS Code
 At this point the steps are very general. It's important to do your research to see which terminal, shell and editor you want. These are the ones I decided to go with
 - terminal: termite
-- shell: fish
+- shell: fish (I think zsh is a better option, but you didn't hear it from me)
 - editor: VS code
 - version control: git
 
@@ -177,7 +206,7 @@ vim ~/xinitrc
 sxhkd &
 exec bspwm
 
-# Make termite your default terminal by going into the sxhkdrc file and changing xterm to termite
+# Make termite your default terminal by going into the `.config/sxhkd/sxhkdrc file and changing xterm to termite
 
 # Add custom keybinds to sxhkdrc
 ```
@@ -205,7 +234,7 @@ feh --bg-scale wallpaper.jpg
 ```
 
 # Step 17 - Yay
-- this will help download AUR things
+- this will help download AUR things, which are unofficial packages for things. You'll need it at some point
 
 ```
 git clone https://aur.archlinux.org/yay.git
@@ -215,7 +244,7 @@ cd yay
 makepkg -si
 ```
 # Step 18 - Polybar
-I actually hate this part
+I actually hate this part but I missed having some sort of menu bar to tell me how much battery I have left, the date, etc
 
 ```
 yay -S polybar
@@ -239,16 +268,16 @@ polybar main &
 ```
 
 # Step 19 - Backing Up Your Dotfiles
-I'm not trying to lose all my stuff again.
+I forgot to do this the first time around and lost all my progress. It put me in a 8 month depression until I picked up Arch Linux again.
 
 ```
 # Initialize a git bare repo
 git init --bare $HOME/.dotfiles
 
-# Create an alias
+# Create an alias so the bare repo mirrors your actual dotfiles
 alias dotfiles ="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
-# Save alias
+# Save alias, this will allow you to use dotfiles as a command in place of git
 funcsave dotfiles
 
 # Ignore files you don't want tracked
@@ -260,7 +289,7 @@ dotfiles config --local status.showUntrackedFiles no
 ```
 
 # Step 20 - Make your windows look less ugly
-Since I have bspwm I don't have a display manager to add GTK themes to. So I have to get lxappearance >:( I feel lied to
+Since I have bspwm I don't have a display manager to add GTK themes to. So I need a theme switcher to add themes, icons, fonts
 
 ```
 yay -S lxappearance
@@ -268,7 +297,7 @@ sudo pacman -S gtk-engine-murrine adwaita-icon-theme
 
 ```
 
-Step 20 was made possible largely due to this reddit post, https://www.reddit.com/r/unixporn/comments/74z2z6/easily_getting_started_with_bspwm_and_polybar/
+90% of the aesthetics of my build were made possible largely due to this reddit post, https://www.reddit.com/r/unixporn/comments/74z2z6/easily_getting_started_with_bspwm_and_polybar/
 and I wish I had found it earlier.
 
 # Step 21 - Neofetch
@@ -282,17 +311,13 @@ neofetch
 
 ```
 
-Now eveyr time you create a new terminal session you can show off.
+Now every time you create a new terminal session you can show off.
 
 # Step 22 - File Manager
-- I'm using thunar
+- I'm using [thunar](https://wiki.archlinux.org/title/thunar)
 
-# Step ?? - Aliases
-
-# Step 23 - Connecting to Eduroam
-- this is too hard and I failed
-- luckily it was easy to connect to Mac-WiFi (note the capitals)
-- I'll post my wifi config if someone asks
+# Step 23 - Aliases
+I respectfully ignore this part because I don't want to get used to an alias and look like a fool when I use another machine. But feel free to take this time to create aliases like `git add .` = `ga`.
 
 # Step 24 - Bluetooth
 ```bash
@@ -337,26 +362,36 @@ $ pavucontrol
 # this interface will show you your connected devices, make sure it is not on mute and that under configuration tab it says it's connect to ADP SINK or sm dumb
 ```
 
-## Step ??
-- downloaded nerd-fonts-iosevka
-- tty-clock
+This brings me to the end of this Arch Linux SetUp Guide. I've listed a few more tips and tools that are worth looking into.
+# Other Common Things You May Want
+## Display Clock
+- download nerd-fonts-iosevka
+- download tty-clock
 
-## polybar improements
-- rofi
-- https://awesomeopensource.com/project/adi1090x/polybar-themes
-- pip3 install pywal
+## More PolyBar Improvements
+- rofi for slightly better application management
+- themes: https://awesomeopensource.com/project/adi1090x/polybar-themes
 
 
-# Help
-
-  I updated my system and something broke.
+# Help, I updated my system and something broke.
+It's common to update your system every now and then by running `pacman -Syu` but there have been times when updating caused my wifi to stop working. I later checked the [Arch Linux News Page](https://archlinux.org/) to find that the latest update will break for some users. In cases like these, it's best to roll back to a previous version.
   
-  ```
-  $ uname -a
-    This is the linux version you're running
-  $ cd /var/cache/pacman/pkg
-  $ ls
-    These are the linux versions you have saved in your cache. Find one you want to downgrade to
-  $ sudo pacman -U linux-#.#.#.arch---
-  $ reboot
-  ```
+```
+# This tells you the linux version you're running
+$ uname -a
+
+$ cd /var/cache/pacman/pkg
+# These are the linux versions you have saved in your cache. Find one you want to downgrade to
+$ ls
+
+$ sudo pacman -U linux-#.#.#.arch---
+$ reboot
+```
+
+If you have any questions or run into any issue, I would be happy to help out. [Here's my Twitter!](https://twitter.com/SuhaviSandhu)
+
+# Helpful Links
+- https://wiki.archlinux.org/title/installation_guide
+- https://wiki.archlinux.org/title/General_recommendations
+- https://www.linuxtechi.com/dual-boot-arch-linux-windows-10/
+- https://ostechnix.com/recommended-way-clean-package-cache-arch-linux/
