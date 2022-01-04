@@ -377,7 +377,7 @@ This brings me to the end of this Arch Linux Setup Guide. I've listed a few more
 # Help, I updated my system and something broke.
 It's common to update your system every now and then by running `pacman -Syu` but there have been times when updating caused issues such as wifi failure. I later checked the [Arch Linux News Page](https://archlinux.org/) to find that the latest update will break for some users. In cases like these, it's best to roll back to a previous version.
   
-```
+```bash
 # This tells you the linux version you're running
 $ uname -a
 

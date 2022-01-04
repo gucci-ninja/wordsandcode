@@ -393,16 +393,16 @@ $ pavucontrol
 </ul>
 <h1 id="help-i-updated-my-system-and-something-broke">Help, I updated my system and something broke.</h1>
 <p>It&rsquo;s common to update your system every now and then by running <code>pacman -Syu</code> but there have been times when updating caused issues such as wifi failure. I later checked the <a href="https://archlinux.org/">Arch Linux News Page</a> to find that the latest update will break for some users. In cases like these, it&rsquo;s best to roll back to a previous version.</p>
-<pre tabindex="0"><code># This tells you the linux version you're running
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># This tells you the linux version you&#39;re running</span>
 $ uname -a
 
 $ cd /var/cache/pacman/pkg
-# These are the linux versions you have saved in your cache. Find one you want to downgrade to
+<span style="color:#75715e"># These are the linux versions you have saved in your cache. Find one you want to downgrade to</span>
 $ ls
 
 $ sudo pacman -U linux-#.#.#.arch---
 $ reboot
-</code></pre><p>If you have any questions or run into any issue, I would be happy to help out. <a href="https://twitter.com/SuhaviSandhu">Here&rsquo;s my Twitter!</a></p>
+</code></pre></div><p>If you have any questions or run into any issue, I would be happy to help out. <a href="https://twitter.com/SuhaviSandhu">Here&rsquo;s my Twitter!</a></p>
 <h1 id="helpful-resources">Helpful Resources</h1>
 <ul>
 <li><a href="https://wiki.archlinux.org/title/installation_guide">https://wiki.archlinux.org/title/installation_guide</a></li>
