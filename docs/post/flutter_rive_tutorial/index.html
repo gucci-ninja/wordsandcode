@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Flutter Web and Rive Animation Tutorial // Words &amp; Code</title>
+    <link rel="shortcut icon" href="https://pngimage.net/wp-content/uploads/2018/05/bullet-style-png-3-300x200.png" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.89.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Suhavi Sandhu" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://gucci-ninja.github.io/wordsandcode/css/main.min.571377f7ee2bcabe58ee65dc02d074a6d077aaf4d181a3bdcb4ddba832ebe8e9.css" />
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-194918019-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Flutter Web and Rive Animation Tutorial"/>
+<meta name="twitter:description" content="Here is a beginner to intermediate tutorial for setting up a Flutter web app with Rive animations. I recently built a sliding tile game that incorporates Rive animations for the Flutter Hackathon. In this tutorial I’m going to show you how to add an animation to your Flutter web app and control it through user input.
+We will create a basketball animation that will get triggered each time the user clicks on a button."/>
+
+    <meta property="og:title" content="Flutter Web and Rive Animation Tutorial" />
+<meta property="og:description" content="Here is a beginner to intermediate tutorial for setting up a Flutter web app with Rive animations. I recently built a sliding tile game that incorporates Rive animations for the Flutter Hackathon. In this tutorial I’m going to show you how to add an animation to your Flutter web app and control it through user input.
+We will create a basketball animation that will get triggered each time the user clicks on a button." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gucci-ninja.github.io/wordsandcode/post/flutter_rive_tutorial/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-05-31T23:21:27-04:00" />
+<meta property="article:modified_time" content="2022-05-31T23:21:27-04:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://gucci-ninja.github.io/wordsandcode/"><img class="app-header-avatar" src="/wordsandcode/img/avatar.jpg" alt="Suhavi Sandhu" /></a>
+      <h1>Words &amp; Code</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/wordsandcode/">Home</a>
+            <hr class="app-header-menu-separator">
+          
+          <a class="app-header-menu-item" href="/wordsandcode/about/">About</a>
+            <hr class="app-header-menu-separator">
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/thanksgiving/">A-Z Tech to be thankful for in 2020</a>
+            <hr class="app-header-menu-separator">
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/flutter_rive_tutorial/">Flutter Web and Rive Animation Tutorial</a>
+            <hr class="app-header-menu-separator">
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/open_source/">How to start contributing to open source</a>
+            <hr class="app-header-menu-separator">
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/arch_linux/">Your Guide to Arch Linux</a>
+      </nav>
+      <p>Software engineer passionate about building powerful, useful and open source systems. Thanks for dropping by! 💛</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/gucci-ninja" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://twitter.com/SuhaviSandhu" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+          </a>
+        
+          <a href="https://www.linkedin.com/in/suhavi/" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>LinkedIn</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Flutter Web and Rive Animation Tutorial</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          May 31, 2022
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          4 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p><img src="https://visitor-badge.glitch.me/badge?page_id=gucci-ninja-flutter-rive" alt="visitors">
+<img src="../../img/flutter/header.jpeg" alt=""></p>
+<p>Here is a beginner to intermediate tutorial for setting up a Flutter web app with Rive animations. I recently built a <a href="https://waterslide-kyy1knexs-gucci-ninja.vercel.app/#/">sliding tile game</a> that incorporates Rive animations for the Flutter Hackathon. In this tutorial I’m going to show you how to add an animation to your Flutter web app and control it through user input.</p>
+<p>We will create a basketball animation that will get triggered each time the user clicks on a button.</p>
+<p>First we’ll create the animation. If you already have your animation you can skip to this section which will show you how to add your animation to a web app.</p>
+<p>Rive is a free-to-use platform for designing and creating animations. We are going to use a basketball animation that Rive provides as one of their tutorials. <a href="https://editor.rive.app/preview/642-1469-basketball/219454">Here is the animation.</a></p>
+<p>When you open it, there’s a Design tab that let’s you modify the look of the animation, like the colours and original shape of the ball.</p>
+<p><img src="../../img/flutter/design_tab.png" alt=""></p>
+<p>If you switch to the Animate tab you can see the animation run. Each animation can have multiple ‘states’, in this one there’s an <code>idle</code> state but you could add more, like a <code>rolling</code> state or whatever you might need for your business logic.</p>
+<p><img src="../../img/flutter/animate_tab.png" alt=""></p>
+<p>Download the animation in the newest runtime as <code>basketball.riv</code>. Once we hook it up to Flutter, we will be able to play the <code>idle</code> animation when the user performs some action, such as clicking a button.</p>
+<p>Create a flutter project that we will be adding the animation to. Once the project is created, make an <code>assets</code> folder if it doesn&rsquo;t already exist and move your animation file into it. I saved mine under <code>assets/animations/</code>.</p>
+<pre tabindex="0"><code>flutter create fluttertutorial
+cd fluttertutorial
+flutter run -d chrome
+</code></pre><p>It will spin up a demo app for you that looks something like this.</p>
+<p><img src="../../img/flutter/demo_app.png" alt=""></p>
+<p>Next we add the library that is going to help us control (play and pause) our animation.</p>
+<p>Add to <code>pubspec.yaml</code> and run <code>flutter pub get</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">dependencies</span>:
+	<span style="color:#f92672">rive</span>: <span style="color:#ae81ff">^0.8.4</span>
+</code></pre></div><p>Then in <code>lib/main.dart</code>, import the package.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;package:rive/rive.dart&#39;</span>;
+</code></pre></div><p>Now let’s add the animation to our app by creating a stateless widget. Add this code to the end of <code>lib/main.dart</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BasketBallAnimation</span> <span style="color:#66d9ef">extends</span> StatelessWidget {
+  <span style="color:#66d9ef">const</span> BasketBallAnimation({Key<span style="color:#f92672">?</span> key}) <span style="color:#f92672">:</span> <span style="color:#66d9ef">super</span>(key: key);
+
+  <span style="color:#960050;background-color:#1e0010">@</span>override
+  Widget build(BuildContext context) {
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">const</span> Scaffold(
+      body: Center(child: RiveAnimation.asset(<span style="color:#e6db74">&#39;animations/basketball.riv&#39;</span>)),
+    );
+  }
+}
+</code></pre></div><p>To display this class, find the main class, <code>MyApp</code> and set <code>home:</code> to point to our new widget.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyApp</span> <span style="color:#66d9ef">extends</span> StatelessWidget {
+  <span style="color:#66d9ef">const</span> MyApp({Key<span style="color:#f92672">?</span> key}) <span style="color:#f92672">:</span> <span style="color:#66d9ef">super</span>(key: key);
+
+  <span style="color:#960050;background-color:#1e0010">@</span>override
+  Widget build(BuildContext context) {
+    <span style="color:#66d9ef">return</span> MaterialApp(
+      title: <span style="color:#e6db74">&#39;Flutter Demo&#39;</span>,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: <span style="color:#66d9ef">const</span> BasketBallAnimation(), <span style="color:#75715e">// make this change
+</span><span style="color:#75715e"></span>    );
+  }
+}
+</code></pre></div><p>Now when you re-run, you should see the basketball animation playing.</p>
+<p><img src="../../img/flutter/animation.png" alt=""></p>
+<p>Now let’s give the widget state - this is how we will be able to tell if it’s playing or paused.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BasketBallAnimation</span> <span style="color:#66d9ef">extends</span> StatefulWidget {
+  <span style="color:#66d9ef">const</span> BasketBallAnimation({Key<span style="color:#f92672">?</span> key}) <span style="color:#f92672">:</span> <span style="color:#66d9ef">super</span>(key: key);
+
+  <span style="color:#960050;background-color:#1e0010">@</span>override
+  State<span style="color:#f92672">&lt;</span>BasketBallAnimation<span style="color:#f92672">&gt;</span> createState() <span style="color:#f92672">=&gt;</span> _BasketBallAnimationState();
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">_BasketBallAnimationState</span> <span style="color:#66d9ef">extends</span> State<span style="color:#f92672">&lt;</span>BasketBallAnimation<span style="color:#f92672">&gt;</span> {
+  <span style="color:#66d9ef">bool</span> isPlaying <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+  
+  <span style="color:#960050;background-color:#1e0010">@</span>override
+  Widget build(BuildContext context) {
+    <span style="color:#66d9ef">return</span> Scaffold(
+      body: <span style="color:#66d9ef">const</span> Center(child: RiveAnimation.asset(<span style="color:#e6db74">&#39;animations/basketball.riv&#39;</span>)),
+    );
+  }
+}
+</code></pre></div><p>Next we will add a button that, when called, will change the value of <code>isPlaying</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">_BasketBallAnimationState</span> <span style="color:#66d9ef">extends</span> State<span style="color:#f92672">&lt;</span>BasketBallAnimation<span style="color:#f92672">&gt;</span> {
+  <span style="color:#66d9ef">bool</span> isPlaying <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+
+	<span style="color:#66d9ef">void</span> _toggleAnimation() {
+    setState(() {
+      isPlaying <span style="color:#f92672">=</span> <span style="color:#f92672">!</span>isPlaying;
+    });
+  }
+
+	<span style="color:#960050;background-color:#1e0010">@</span>override
+  Widget build(BuildContext context) {
+    <span style="color:#66d9ef">return</span> Scaffold(
+      body:
+          <span style="color:#66d9ef">const</span> Center(child: RiveAnimation.asset(<span style="color:#e6db74">&#39;animations/basketball.riv&#39;</span>)),
+			floatingActionButton: FloatingActionButton(
+        onPressed: _toggleAnimation,
+        tooltip: isPlaying <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;Pause&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Play&#39;</span>,
+        child: Icon(
+          isPlaying <span style="color:#f92672">?</span> Icons.pause <span style="color:#f92672">:</span> Icons.play_arrow,
+        ),
+      ),
+  }
+}
+</code></pre></div><p>Finally, we can hook up the RiveController methods. The <code>RiveAnimationController</code> is what holds the state of our animation. Initially, we are going to set it to play our animation named <code>idle</code>. This is a <code>SimpleAnimation</code>. We will be able to tell if the animation is playing or not by checking the <code>isActive</code> property of the controller. We attach this controller to our animation asset by passing it into our animation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart">RiveAnimation.asset(<span style="color:#e6db74">&#39;path/to/my/animation.riv&#39;</span>, controllers: [_controller])
+</code></pre></div><p>Here is the updated code with the controller hooked up.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">_BasketBallAnimationState</span> <span style="color:#66d9ef">extends</span> State<span style="color:#f92672">&lt;</span>BasketBallAnimation<span style="color:#f92672">&gt;</span> {
+  late RiveAnimationController _controller;
+
+  <span style="color:#66d9ef">bool</span> <span style="color:#66d9ef">get</span> isPlaying <span style="color:#f92672">=&gt;</span> _controller.isActive;
+
+  <span style="color:#66d9ef">void</span> _toggleAnimation() {
+    setState(() {
+      _controller.isActive <span style="color:#f92672">=</span> <span style="color:#f92672">!</span>_controller.isActive;
+    });
+  }
+
+  <span style="color:#960050;background-color:#1e0010">@</span>override
+  <span style="color:#66d9ef">void</span> initState() {
+    <span style="color:#66d9ef">super</span>.initState();
+    _controller <span style="color:#f92672">=</span> SimpleAnimation(<span style="color:#e6db74">&#39;idle&#39;</span>);
+  }
+
+  <span style="color:#960050;background-color:#1e0010">@</span>override
+  Widget build(BuildContext context) {
+    <span style="color:#66d9ef">return</span> Scaffold(
+      body: Center(
+          child: RiveAnimation.asset(<span style="color:#e6db74">&#39;animations/basketball.riv&#39;</span>,
+              controllers: [_controller])),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _toggleAnimation,
+        tooltip: isPlaying <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;Pause&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Play&#39;</span>,
+        child: Icon(
+          isPlaying <span style="color:#f92672">?</span> Icons.pause <span style="color:#f92672">:</span> Icons.play_arrow,
+        ),
+      ),
+    );
+  }
+}
+</code></pre></div><p>Now you should have something that looks like the screen below. A basketball animation that starts and stops when the user interacts with the floating button.</p>
+<p><img src="../../img/flutter/final_demo.gif" alt=""></p>
+<p>Hope this tutorial helps you. The complete code for <code>lib/main.dart</code> can be found in <a href="https://gist.github.com/gucci-ninja/4698166233ab078a2ff979b45a4673bb">this gist</a>. Happy coding :)</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
