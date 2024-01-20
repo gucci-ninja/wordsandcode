@@ -23,7 +23,7 @@ googleAnalytics="UA-194918019-1"
   author = "Suhavi Sandhu"
   description = "Software engineer passionate about building powerful, useful and open source systems. Thanks for dropping by! 💛"
   menu_item_separator = " - "
-  avatar = "/img/avatar.jpg"
+  avatar = "/wordsandcode/img/avatar.jpg"
   favicon = "https://pngimage.net/wp-content/uploads/2018/05/bullet-style-png-3-300x200.png"
   [[params.social]]
     icon = "github"
