@@ -6,7 +6,17 @@
     <description>Recent content on Words &amp; Code</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 31 May 2022 23:21:27 -0400</lastBuildDate><atom:link href="https://gucci-ninja.github.io/wordsandcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Jan 2024 11:07:55 -0500</lastBuildDate><atom:link href="https://gucci-ninja.github.io/wordsandcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>8 Tips for Effective Design Reviews</title>
+      <link>https://gucci-ninja.github.io/wordsandcode/post/design_review_tips/</link>
+      <pubDate>Sat, 06 Jan 2024 11:07:55 -0500</pubDate>
+      
+      <guid>https://gucci-ninja.github.io/wordsandcode/post/design_review_tips/</guid>
+      <description>8 Tips for Effective Design Reviews I had a recent design review that caused me to self-reflect and come up with some practical technical and non-technical tips on some aspects that may be overlooked in design reviews (lower-level designs in particular).
+Technical Tips 1. The S in SOLID In my lens, making code changes comes at the cost of introducing complexity. In order to reduce the complexity, I tend to lean towards modifying existing classes.</description>
+    </item>
+    
     <item>
       <title>Flutter Web and Rive Animation Tutorial</title>
       <link>https://gucci-ninja.github.io/wordsandcode/post/flutter_rive_tutorial/</link>

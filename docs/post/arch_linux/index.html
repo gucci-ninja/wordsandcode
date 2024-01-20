@@ -4,7 +4,7 @@
     <title>Your Guide to Arch Linux // Words &amp; Code</title>
     <link rel="shortcut icon" href="https://pngimage.net/wp-content/uploads/2018/05/bullet-style-png-3-300x200.png" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.89.0" />
+    <meta name="generator" content="Hugo 0.108.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Suhavi Sandhu" />
     <meta name="description" content="" />
@@ -37,17 +37,19 @@ I started using Arch in 2018 after getting tired of Ubuntu and since then I have
 <meta property="article:modified_time" content="2021-03-17T00:22:09-04:00" />
 
 
-
   </head>
   <body>
     <header class="app-header">
-      <a href="https://gucci-ninja.github.io/wordsandcode/"><img class="app-header-avatar" src="/wordsandcode/img/avatar.jpg" alt="Suhavi Sandhu" /></a>
+      <a href="https://gucci-ninja.github.io/wordsandcode/"><img class="app-header-avatar" src="/img/avatar.jpg" alt="Suhavi Sandhu" /></a>
       <h1>Words &amp; Code</h1>
       <nav class="app-header-menu">
           <a class="app-header-menu-item" href="/wordsandcode/">Home</a>
             <hr class="app-header-menu-separator">
           
           <a class="app-header-menu-item" href="/wordsandcode/about/">About</a>
+            <hr class="app-header-menu-separator">
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/design_review_tips/">8 Tips for Effective Design Reviews</a>
             <hr class="app-header-menu-separator">
           
           <a class="app-header-menu-item" href="/wordsandcode/post/thanksgiving/">A-Z Tech to be thankful for in 2020</a>
@@ -126,106 +128,106 @@ I started using Arch in 2018 after getting tired of Ubuntu and since then I have
 <h1 id="step-3---mount-your-system">Step 3 - Mount your system</h1>
 <p>At this point you are using Arch Linux. From here there are actually a bunch of steps but I <em>usually</em> do them all at once. It&rsquo;s kind of intimidating if it&rsquo;s your first time because you just see a black screen with a weird font of white text.</p>
 <p>Select <code>Arch Linux install medium</code> to load up the contents of your USB. This might take a while. The following commands will help you verify that you are in boot mode and that your machine has detected the EFI partition (used for booting) and the Arch partition.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># To verify you are in boot mode</span>
-ls /sys/firmware/efi/efivars
-
-<span style="color:#75715e"># To see partitions (like the one you made in Step 0)</span>
-fdisk -l
-</code></pre></div><p>My EFI disk is named <code>sda1</code> and the Arch one is <code>sda5</code>. I know this because <code>sda5</code> says exactly 100GB, which is how much I allocated to it. They may be under different names for you but it should indicate <code>EFI</code> on the EFI one and <code>/</code> on the one that will become your root directory. You <strong>can</strong> further partition the root directory using <code>fdisk</code> to allocate space for system encryption, RAID, etc. Data redundancy wasn&rsquo;t a major concern for me and I wouldn&rsquo;t recommend it if this is your first Linux build.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># To format your root partition</span>
-mkfs.ext4 &lt;arch_partition&gt;
-<span style="color:#75715e"># Here is what I ran for example, -L is for label</span>
-mkfs.ext4 -L <span style="color:#e6db74">&#34;Arch Linux&#34;</span> /dev/sda5
-
-<span style="color:#75715e"># To mount the partition, run mount &lt;arch_partition&gt; /mnt</span>
-mount /dev/sda5 /mnt
-
-<span style="color:#75715e"># Mount EFI partition, for me it was /dev/sda1</span>
-mkdir -p /mnt/boot/efi
-mount &lt;efi_partition&gt; /mnt/boot/efi
-
-<span style="color:#75715e"># If you are not on a wired connection, connect to wifi</span>
-
-<span style="color:#75715e"># Option A: comes with UI but outdated</span>
-wifi-menu
-
-<span style="color:#75715e"># Option B - launches interactive iwd prompt</span>
-iwctl
-<span style="color:#f92672">[</span>iwd<span style="color:#f92672">]</span> device list
-<span style="color:#f92672">[</span>iwd<span style="color:#f92672">]</span> station &lt;device&gt; scan
-<span style="color:#f92672">[</span>iwd<span style="color:#f92672">]</span> station &lt;device&gt; get-networks
-<span style="color:#f92672">[</span>iwd<span style="color:#f92672">]</span> station &lt;device&gt; connect &lt;SSID&gt;
-
-<span style="color:#75715e"># Update the system time and date</span>
-timedatectl set-ntp true
-
-<span style="color:#75715e"># Install base system</span>
-pacstrap /mnt base linux linux-firmware vim
-
-<span style="color:#75715e"># Generate the fstab (I have no clue what this is but I think it lets you detect mounted file systems)</span>
-genfstab -p /mnt &gt;&gt; /mnt/etc/fstab
-</code></pre></div><h1 id="step-4---get-out-of-the-usb">Step 4 - Get out of the USB</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># To verify you are in boot mode</span>
+</span></span><span style="display:flex;"><span>ls /sys/firmware/efi/efivars
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># To see partitions (like the one you made in Step 0)</span>
+</span></span><span style="display:flex;"><span>fdisk -l
+</span></span></code></pre></div><p>My EFI disk is named <code>sda1</code> and the Arch one is <code>sda5</code>. I know this because <code>sda5</code> says exactly 100GB, which is how much I allocated to it. They may be under different names for you but it should indicate <code>EFI</code> on the EFI one and <code>/</code> on the one that will become your root directory. You <strong>can</strong> further partition the root directory using <code>fdisk</code> to allocate space for system encryption, RAID, etc. Data redundancy wasn&rsquo;t a major concern for me and I wouldn&rsquo;t recommend it if this is your first Linux build.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># To format your root partition</span>
+</span></span><span style="display:flex;"><span>mkfs.ext4 &lt;arch_partition&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Here is what I ran for example, -L is for label</span>
+</span></span><span style="display:flex;"><span>mkfs.ext4 -L <span style="color:#e6db74">&#34;Arch Linux&#34;</span> /dev/sda5
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># To mount the partition, run mount &lt;arch_partition&gt; /mnt</span>
+</span></span><span style="display:flex;"><span>mount /dev/sda5 /mnt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Mount EFI partition, for me it was /dev/sda1</span>
+</span></span><span style="display:flex;"><span>mkdir -p /mnt/boot/efi
+</span></span><span style="display:flex;"><span>mount &lt;efi_partition&gt; /mnt/boot/efi
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If you are not on a wired connection, connect to wifi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Option A: comes with UI but outdated</span>
+</span></span><span style="display:flex;"><span>wifi-menu
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Option B - launches interactive iwd prompt</span>
+</span></span><span style="display:flex;"><span>iwctl
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>iwd<span style="color:#f92672">]</span> device list
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>iwd<span style="color:#f92672">]</span> station &lt;device&gt; scan
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>iwd<span style="color:#f92672">]</span> station &lt;device&gt; get-networks
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>iwd<span style="color:#f92672">]</span> station &lt;device&gt; connect &lt;SSID&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Update the system time and date</span>
+</span></span><span style="display:flex;"><span>timedatectl set-ntp true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install base system</span>
+</span></span><span style="display:flex;"><span>pacstrap /mnt base linux linux-firmware vim
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Generate the fstab (I have no clue what this is but I think it lets you detect mounted file systems)</span>
+</span></span><span style="display:flex;"><span>genfstab -p /mnt &gt;&gt; /mnt/etc/fstab
+</span></span></code></pre></div><h1 id="step-4---get-out-of-the-usb">Step 4 - Get out of the USB</h1>
 <p>You have successfully taken the image on your USB and mounted it onto your computer. This step will basically be the equivalent of <code>cd</code> into your new directory. Keep the USB plugged in though, we&rsquo;re not done with it yet.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Change root into arch linux</span>
-arch-chroot /mnt
-</code></pre></div><h1 id="step-5---wifi">Step 5 - Wifi</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Change root into arch linux</span>
+</span></span><span style="display:flex;"><span>arch-chroot /mnt
+</span></span></code></pre></div><h1 id="step-5---wifi">Step 5 - Wifi</h1>
 <p>Most important step because without wifi you can&rsquo;t browse memes. There are a lot of ways to do this and I had a lot of trouble with the ones that are mentioned in most tutorials so here&rsquo;s the one that I would recommend. <a href="https://wiki.archlinux.org/title/NetworkManager">NetworkManager</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -Sy networkmanager
-
-<span style="color:#75715e"># Automatically start it up</span>
-systemctl enable NetworkManager
-</code></pre></div><h1 id="step-6---bootloader">Step 6 - Bootloader</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -Sy networkmanager
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Automatically start it up</span>
+</span></span><span style="display:flex;"><span>systemctl enable NetworkManager
+</span></span></code></pre></div><h1 id="step-6---bootloader">Step 6 - Bootloader</h1>
 <p>You need something to load your OS each time you restart your computer so get grub.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Download grub</span>
-pacman -S grub efibootmgr
-
-<span style="color:#75715e"># Download something that allows Arch Linux to detect Windows as well</span>
-pacman -S os-prober
-
-<span style="color:#75715e"># Install grub into HDD</span>
-grub-install /dev/sda
-ls -l /boot/efi/EFI/arch
-
-<span style="color:#75715e"># Generate grub config</span>
-grub-mkconfig -o /boot/grub/grub.cfg
-</code></pre></div><h1 id="step-7---set-up-some-boring-things">Step 7 - Set Up Some Boring Things</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Download grub</span>
+</span></span><span style="display:flex;"><span>pacman -S grub efibootmgr
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Download something that allows Arch Linux to detect Windows as well</span>
+</span></span><span style="display:flex;"><span>pacman -S os-prober
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install grub into HDD</span>
+</span></span><span style="display:flex;"><span>grub-install /dev/sda
+</span></span><span style="display:flex;"><span>ls -l /boot/efi/EFI/arch
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Generate grub config</span>
+</span></span><span style="display:flex;"><span>grub-mkconfig -o /boot/grub/grub.cfg
+</span></span></code></pre></div><h1 id="step-7---set-up-some-boring-things">Step 7 - Set Up Some Boring Things</h1>
 <p>Like date, timezone, clock, etc</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">timedatectl set-ntp true
-
-<span style="color:#75715e"># Set up timezone</span>
-ln -sf /usr/share/zoneinfo/Canada/Eastern /etc/localtime
-
-<span style="color:#75715e"># Set clock</span>
-hwclock --systohc
-
-<span style="color:#75715e"># Also set locale</span>
-<span style="color:#75715e"># First uncomment the Canada locale in /etc/locale.gen</span>
-vi /etc/locale.gen
-<span style="color:#75715e"># Generate the locales</span>
-locale-gen
-
-<span style="color:#75715e"># Set the root password</span>
-passwd
-</code></pre></div><h1 id="step-9---unmount">Step 9 - Unmount</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">umount -R /mnt
-reboot
-</code></pre></div><p>Now you can take out the USB.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>timedatectl set-ntp true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set up timezone</span>
+</span></span><span style="display:flex;"><span>ln -sf /usr/share/zoneinfo/Canada/Eastern /etc/localtime
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set clock</span>
+</span></span><span style="display:flex;"><span>hwclock --systohc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Also set locale</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># First uncomment the Canada locale in /etc/locale.gen</span>
+</span></span><span style="display:flex;"><span>vi /etc/locale.gen
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Generate the locales</span>
+</span></span><span style="display:flex;"><span>locale-gen
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set the root password</span>
+</span></span><span style="display:flex;"><span>passwd
+</span></span></code></pre></div><h1 id="step-9---unmount">Step 9 - Unmount</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>umount -R /mnt
+</span></span><span style="display:flex;"><span>reboot
+</span></span></code></pre></div><p>Now you can take out the USB.</p>
 <h1 id="step-10---take-a-break-because-youve-come-this-far">Step 10 - Take a break because you&rsquo;ve come this far</h1>
 <p>😎</p>
 <h1 id="step-11---users">Step 11 - Users</h1>
 <p>After rebooting, login as root and create a user.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">useradd -m -g wheel suhavi
-psswd suhavi
-
-<span style="color:#75715e"># Give sudo ability</span>
-vim /etc/sudoers
-<span style="color:#75715e"># Uncomment the following line</span>
-%wheel ALl<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> ALL
-</code></pre></div><h1 id="step-12---xorg">Step 12 - Xorg</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>useradd -m -g wheel suhavi
+</span></span><span style="display:flex;"><span>psswd suhavi
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Give sudo ability</span>
+</span></span><span style="display:flex;"><span>vim /etc/sudoers
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Uncomment the following line</span>
+</span></span><span style="display:flex;"><span>%wheel ALl<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> ALL
+</span></span></code></pre></div><h1 id="step-12---xorg">Step 12 - Xorg</h1>
 <p>This is a graphical server. So you don&rsquo;t have to look at a blank sceen all the time.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -S xorg-server xorg
-<span style="color:#75715e"># Type startx to start it</span>
-</code></pre></div><h1 id="step-13---terminal--shell--git--vs-code">Step 13 - Terminal + Shell + Git + VS Code</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -S xorg-server xorg
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Type startx to start it</span>
+</span></span></code></pre></div><h1 id="step-13---terminal--shell--git--vs-code">Step 13 - Terminal + Shell + Git + VS Code</h1>
 <p>At this point the steps are very general. It&rsquo;s important to do your research to see which terminal, shell and editor you want. These are the ones I decided to go with</p>
 <ul>
 <li>terminal: termite</li>
@@ -233,156 +235,152 @@ vim /etc/sudoers
 <li>editor: VS code</li>
 <li>version control: git</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -S termite fish git code
-
-<span style="color:#75715e"># Make fish your default</span>
-chsh -l <span style="color:#75715e"># See all shells</span>
-chsh -s fish
-
-<span style="color:#75715e"># Copy the following to fish config file to make startx run on startup</span>
-<span style="color:#66d9ef">if</span> status is-login
-  <span style="color:#66d9ef">if</span> test -z <span style="color:#e6db74">&#34;</span>$DISPLAY<span style="color:#e6db74">&#34;</span> -a $XDG_VTNR <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-    exec startx -- -keeptty
-  end
-end
-
-</code></pre></div><p>Configs are your best friend with Linux. Located under .config at the root level, they contain rules for all the customizations you want to make to your operating system. Take a look at the files in this <a href="https://github.com/gucci-ninja/.dotfiles">repo</a> to get an idea of the kinds of changes you can make.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -S termite fish git code
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Make fish your default</span>
+</span></span><span style="display:flex;"><span>chsh -l <span style="color:#75715e"># See all shells</span>
+</span></span><span style="display:flex;"><span>chsh -s fish
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Copy the following to fish config file to make startx run on startup</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> status is-login
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> test -z <span style="color:#e6db74">&#34;</span>$DISPLAY<span style="color:#e6db74">&#34;</span> -a $XDG_VTNR <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    exec startx -- -keeptty
+</span></span><span style="display:flex;"><span>  end
+</span></span><span style="display:flex;"><span>end
+</span></span></code></pre></div><p>Configs are your best friend with Linux. Located under .config at the root level, they contain rules for all the customizations you want to make to your operating system. Take a look at the files in this <a href="https://github.com/gucci-ninja/.dotfiles">repo</a> to get an idea of the kinds of changes you can make.</p>
 <h1 id="step-14---window-manager">Step 14 - Window Manager</h1>
 <p>There are lots of window managers to choose from. I personally went with bspwm because I like binary trees. I also got dmenu, which is a search bar that lets you type commands or applications to open. It can be accessed with (cmd/windows key) + spacebar. However, in order for these hotkeys and shortcuts to work you need sxhkd. Lastly, I installed some fonts!</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -S bspwm dmenu sxhkd
-
-<span style="color:#75715e"># Fonts</span>
-pacman -S noto-fonts
-<span style="color:#75715e"># Fonts can be managed at ~/.config/fontconfig/fonts.conf</span>
-
-<span style="color:#75715e"># Make x server start bspwm</span>
-vim ~/xinitrc
-<span style="color:#75715e"># Add the followng</span>
-sxhkd &amp;
-exec bspwm
-
-<span style="color:#75715e"># Make termite your default terminal by going into the `.config/sxhkd/sxhkdrc file and changing xterm to termite</span>
-
-<span style="color:#75715e"># Add custom keybinds to sxhkdrc</span>
-</code></pre></div><h1 id="step-15---sound">Step 15 - Sound</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -S bspwm dmenu sxhkd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Fonts</span>
+</span></span><span style="display:flex;"><span>pacman -S noto-fonts
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Fonts can be managed at ~/.config/fontconfig/fonts.conf</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Make x server start bspwm</span>
+</span></span><span style="display:flex;"><span>vim ~/xinitrc
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add the followng</span>
+</span></span><span style="display:flex;"><span>sxhkd &amp;
+</span></span><span style="display:flex;"><span>exec bspwm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Make termite your default terminal by going into the `.config/sxhkd/sxhkdrc file and changing xterm to termite</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add custom keybinds to sxhkdrc</span>
+</span></span></code></pre></div><h1 id="step-15---sound">Step 15 - Sound</h1>
 <p>I didn&rsquo;t have sound in the beginning.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -S alsa-utils
-alsamixer -c <span style="color:#ae81ff">0</span>
-</code></pre></div><p>Use the arrow keys to adjust your sound preferences.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -S alsa-utils
+</span></span><span style="display:flex;"><span>alsamixer -c <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>Use the arrow keys to adjust your sound preferences.</p>
 <h1 id="step-16---wallpaper">Step 16 - Wallpaper</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">feh --bg-scale wallpaper.jpg
-
-<span style="color:#75715e"># Edit the following to xinitrc</span>
-~/.fehbg &amp;
-
-<span style="color:#75715e"># Make sure it&#39;s before exec bspwm^</span>
-</code></pre></div><h1 id="step-17---yay">Step 17 - Yay</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>feh --bg-scale wallpaper.jpg
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Edit the following to xinitrc</span>
+</span></span><span style="display:flex;"><span>~/.fehbg &amp;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Make sure it&#39;s before exec bspwm^</span>
+</span></span></code></pre></div><h1 id="step-17---yay">Step 17 - Yay</h1>
 <p>This will help download AUR packages, which are unofficial packages for things. You&rsquo;ll need it at some point</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://aur.archlinux.org/yay.git
-
-cd yay
-
-makepkg -si
-</code></pre></div><h1 id="step-18---polybar">Step 18 - Polybar</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://aur.archlinux.org/yay.git
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cd yay
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>makepkg -si
+</span></span></code></pre></div><h1 id="step-18---polybar">Step 18 - Polybar</h1>
 <p>I actually hate this part but I missed having some sort of menu bar to tell me how much battery I have left, the date, etc</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yay -S polybar
-install -Dm644 /usr/share/doc/polybar/config $HOME/.config/polybar/config
-example polybar
-
-<span style="color:#75715e"># Make a lot of changes to example config</span>
-
-<span style="color:#75715e"># I was getting unicode errors so</span>
-sudo pacman -S ttf-font-awesome
-
-<span style="color:#75715e"># In polybar config change fonts</span>
-font-1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Font Awesome 5 Free:style=Regular:size=10;5&#34;</span>
-font-2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Font Awesome 5 Free:style=Solid:size=10;5&#34;</span>
-
-<span style="color:#75715e"># Go through all unicode characters in polybar config and replace them with icons from the FA cheatsheet</span>
-
-<span style="color:#75715e"># Put this line in bspwmrc. Change main to whatever the name of your bar is</span>
-polybar main &amp;
-
-</code></pre></div><h1 id="step-19---backing-up-your-dotfiles">Step 19 - Backing Up Your Dotfiles</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yay -S polybar
+</span></span><span style="display:flex;"><span>install -Dm644 /usr/share/doc/polybar/config $HOME/.config/polybar/config
+</span></span><span style="display:flex;"><span>example polybar
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Make a lot of changes to example config</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># I was getting unicode errors so</span>
+</span></span><span style="display:flex;"><span>sudo pacman -S ttf-font-awesome
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># In polybar config change fonts</span>
+</span></span><span style="display:flex;"><span>font-1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Font Awesome 5 Free:style=Regular:size=10;5&#34;</span>
+</span></span><span style="display:flex;"><span>font-2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Font Awesome 5 Free:style=Solid:size=10;5&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Go through all unicode characters in polybar config and replace them with icons from the FA cheatsheet</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Put this line in bspwmrc. Change main to whatever the name of your bar is</span>
+</span></span><span style="display:flex;"><span>polybar main &amp;
+</span></span></code></pre></div><h1 id="step-19---backing-up-your-dotfiles">Step 19 - Backing Up Your Dotfiles</h1>
 <p>I forgot to do this the first time around and lost all my progress. It put me in a 8 month depression until I picked up Arch Linux again.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Initialize a git bare repo</span>
-git init --bare $HOME/.dotfiles
-
-<span style="color:#75715e"># Create an alias so the bare repo mirrors your actual dotfiles</span>
-alias dotfiles <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;git --git-dir=</span>$HOME<span style="color:#e6db74">/.dotfiles/ --work-tree=</span>$HOME<span style="color:#e6db74">&#34;</span>
-
-<span style="color:#75715e"># Save alias, this will allow you to use dotfiles as a command in place of git</span>
-funcsave dotfiles
-
-<span style="color:#75715e"># Ignore files you don&#39;t want tracked</span>
-dotfiles config --local status.showUntrackedFiles no
-
-<span style="color:#75715e"># Create a github repo called .dotfiles</span>
-
-<span style="color:#75715e"># dotfiles remote add origin https://github.com/gucci-ninja/.dotfiles</span>
-</code></pre></div><h1 id="step-20---make-your-windows-look-less-ugly">Step 20 - Make your windows look less ugly</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Initialize a git bare repo</span>
+</span></span><span style="display:flex;"><span>git init --bare $HOME/.dotfiles
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create an alias so the bare repo mirrors your actual dotfiles</span>
+</span></span><span style="display:flex;"><span>alias dotfiles <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;git --git-dir=</span>$HOME<span style="color:#e6db74">/.dotfiles/ --work-tree=</span>$HOME<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Save alias, this will allow you to use dotfiles as a command in place of git</span>
+</span></span><span style="display:flex;"><span>funcsave dotfiles
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Ignore files you don&#39;t want tracked</span>
+</span></span><span style="display:flex;"><span>dotfiles config --local status.showUntrackedFiles no
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a github repo called .dotfiles</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># dotfiles remote add origin https://github.com/gucci-ninja/.dotfiles</span>
+</span></span></code></pre></div><h1 id="step-20---make-your-windows-look-less-ugly">Step 20 - Make your windows look less ugly</h1>
 <p>Since I have bspwm I don&rsquo;t have a display manager to add GTK themes to. A GTK theme is the overall theme that handles stuff like the panel color, the backgrounds for windows and tabs, how an application will look when it is active vs. inactive, buttons, check-boxes, etc. So I need a theme switcher to accomplish this.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yay -S lxappearance
-sudo pacman -S gtk-engine-murrine adwaita-icon-theme
-
-<span style="color:#75715e"># Run lxappearance to choose the theme you want</span>
-
-</code></pre></div><p>90% of the aesthetics of my build were made possible largely due to this reddit post, <a href="https://www.reddit.com/r/unixporn/comments/74z2z6/easily_getting_started_with_bspwm_and_polybar/">https://www.reddit.com/r/unixporn/comments/74z2z6/easily_getting_started_with_bspwm_and_polybar/</a>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yay -S lxappearance
+</span></span><span style="display:flex;"><span>sudo pacman -S gtk-engine-murrine adwaita-icon-theme
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Run lxappearance to choose the theme you want</span>
+</span></span></code></pre></div><p>90% of the aesthetics of my build were made possible largely due to this reddit post, <a href="https://www.reddit.com/r/unixporn/comments/74z2z6/easily_getting_started_with_bspwm_and_polybar/">https://www.reddit.com/r/unixporn/comments/74z2z6/easily_getting_started_with_bspwm_and_polybar/</a>
 and I wish I had found it earlier.</p>
 <h1 id="step-21---neofetch">Step 21 - Neofetch</h1>
 <p>You don&rsquo;t need to do this, it&rsquo;s mostly fo showing off to people.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -S neofetch
-
-<span style="color:#75715e"># Add the following to fish.config</span>
-neofetch
-
-</code></pre></div><p>Now every time you create a new terminal session you can show off.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -S neofetch
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add the following to fish.config</span>
+</span></span><span style="display:flex;"><span>neofetch
+</span></span></code></pre></div><p>Now every time you create a new terminal session you can show off.</p>
 <h1 id="step-22---file-manager">Step 22 - File Manager</h1>
 <p>I&rsquo;m using <a href="https://wiki.archlinux.org/title/thunar">thunar</a></p>
 <h1 id="step-23---aliases">Step 23 - Aliases</h1>
 <p>I respectfully ignore this part because I don&rsquo;t want to get used to an alias and look like a fool when I use another machine. But feel free to take this time to create aliases like <code>git add .</code> = <code>ga</code>.</p>
 <h1 id="step-24---bluetooth">Step 24 - Bluetooth</h1>
 <p>Bluetooth can be a pain to work with even for easy to use OSes. I&rsquo;ll save you the trouble of setting it up on Arch.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -S bluez bluez-utils
-$ pacman -S pulseaudio-bluetooth pulseaudio-alsa pavucontrol
-
-systemctl enable bluetooth.service
-
-$ sudo vim etc/bluetooth/main.conf
-<span style="color:#75715e"># add the following line at the end</span>
-<span style="color:#75715e"># this will ensure your bluetooth headphones auto-connect</span>
-AutoEnable<span style="color:#f92672">=</span>true
-
-<span style="color:#75715e"># make a directory for pulse (you may already have it)</span>
-$ mkdir ~/.config/pulse
-<span style="color:#75715e"># copy sample</span>
-$ cp /etc/pulse/* ~/.config/pulse/
-
-$ systemctl restart bluetooth
-
-$ bluetoothctl
-<span style="color:#75715e"># you should be in the bluetooth user now</span>
-<span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ power on
-<span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ agent on
-<span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ default-agent
-<span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ scan on
-<span style="color:#75715e"># at this point you should put your headphones in pairing mode</span>
-<span style="color:#75715e"># they should show up with a mac address</span>
-<span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ pair 00:00:00:00:00
-<span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ connect 00:00:00:00:00
-<span style="color:#75715e"># if this part fails run the following in a new terminal</span>
-$ pulseaudio --start
-<span style="color:#75715e"># it should connect now</span>
-<span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ trust 00:00:00:00:00
-<span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ scan off
-<span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ exit
-
-<span style="color:#75715e"># it should connect your headphoens at this point. if you don&#39;t hear sound, restart spotify or whatever and it should work</span>
-<span style="color:#75715e"># if it doesn&#39;t, open pavucontrol</span>
-$ pavucontrol
-
-<span style="color:#75715e"># this interface will show you your connected devices, make sure it is not on mute and that under configuration tab it says it&#39;s connect to ADP SINK or sm dumb</span>
-</code></pre></div><h1 id="the-end">The End!</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pacman -S bluez bluez-utils
+</span></span><span style="display:flex;"><span>$ pacman -S pulseaudio-bluetooth pulseaudio-alsa pavucontrol
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>systemctl enable bluetooth.service
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ sudo vim etc/bluetooth/main.conf
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># add the following line at the end</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># this will ensure your bluetooth headphones auto-connect</span>
+</span></span><span style="display:flex;"><span>AutoEnable<span style="color:#f92672">=</span>true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># make a directory for pulse (you may already have it)</span>
+</span></span><span style="display:flex;"><span>$ mkdir ~/.config/pulse
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># copy sample</span>
+</span></span><span style="display:flex;"><span>$ cp /etc/pulse/* ~/.config/pulse/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ systemctl restart bluetooth
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ bluetoothctl
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># you should be in the bluetooth user now</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ power on
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ agent on
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ default-agent
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ scan on
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># at this point you should put your headphones in pairing mode</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># they should show up with a mac address</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ pair 00:00:00:00:00
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ connect 00:00:00:00:00
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># if this part fails run the following in a new terminal</span>
+</span></span><span style="display:flex;"><span>$ pulseaudio --start
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># it should connect now</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ trust 00:00:00:00:00
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ scan off
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>bluetooth<span style="color:#f92672">]</span>~ exit
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># it should connect your headphoens at this point. if you don&#39;t hear sound, restart spotify or whatever and it should work</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># if it doesn&#39;t, open pavucontrol</span>
+</span></span><span style="display:flex;"><span>$ pavucontrol
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># this interface will show you your connected devices, make sure it is not on mute and that under configuration tab it says it&#39;s connect to ADP SINK or sm dumb</span>
+</span></span></code></pre></div><h1 id="the-end">The End!</h1>
 <p>This brings me to the end of this Arch Linux Setup Guide. I&rsquo;ve listed a few more tips and tools that are worth looking into</p>
 <h2 id="display-clock">Display Clock</h2>
 <ul>
@@ -396,16 +394,16 @@ $ pavucontrol
 </ul>
 <h1 id="help-i-updated-my-system-and-something-broke">Help, I updated my system and something broke.</h1>
 <p>It&rsquo;s common to update your system every now and then by running <code>pacman -Syu</code> but there have been times when updating caused issues such as wifi failure. I later checked the <a href="https://archlinux.org/">Arch Linux News Page</a> to find that the latest update will break for some users. In cases like these, it&rsquo;s best to roll back to a previous version.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># This tells you the linux version you&#39;re running</span>
-$ uname -a
-
-$ cd /var/cache/pacman/pkg
-<span style="color:#75715e"># These are the linux versions you have saved in your cache. Find one you want to downgrade to</span>
-$ ls
-
-$ sudo pacman -U linux-#.#.#.arch---
-$ reboot
-</code></pre></div><p>If you have any questions or run into any issue, I would be happy to help out. <a href="https://twitter.com/SuhaviSandhu">Here&rsquo;s my Twitter!</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># This tells you the linux version you&#39;re running</span>
+</span></span><span style="display:flex;"><span>$ uname -a
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ cd /var/cache/pacman/pkg
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># These are the linux versions you have saved in your cache. Find one you want to downgrade to</span>
+</span></span><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ sudo pacman -U linux-#.#.#.arch---
+</span></span><span style="display:flex;"><span>$ reboot
+</span></span></code></pre></div><p>If you have any questions or run into any issue, I would be happy to help out. <a href="https://twitter.com/SuhaviSandhu">Here&rsquo;s my Twitter!</a></p>
 <h1 id="helpful-resources">Helpful Resources</h1>
 <ul>
 <li><a href="https://wiki.archlinux.org/title/installation_guide">https://wiki.archlinux.org/title/installation_guide</a></li>

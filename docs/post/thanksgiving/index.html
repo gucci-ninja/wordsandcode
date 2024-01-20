@@ -4,7 +4,7 @@
     <title>A-Z Tech to be thankful for in 2020 // Words &amp; Code</title>
     <link rel="shortcut icon" href="https://pngimage.net/wp-content/uploads/2018/05/bullet-style-png-3-300x200.png" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.89.0" />
+    <meta name="generator" content="Hugo 0.108.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Suhavi Sandhu" />
     <meta name="description" content="" />
@@ -37,17 +37,19 @@ AWS I started using Amazon’s web services earlier this year to host a project.
 <meta property="article:modified_time" content="2020-10-14T20:46:12-04:00" />
 
 
-
   </head>
   <body>
     <header class="app-header">
-      <a href="https://gucci-ninja.github.io/wordsandcode/"><img class="app-header-avatar" src="/wordsandcode/img/avatar.jpg" alt="Suhavi Sandhu" /></a>
+      <a href="https://gucci-ninja.github.io/wordsandcode/"><img class="app-header-avatar" src="/img/avatar.jpg" alt="Suhavi Sandhu" /></a>
       <h1>Words &amp; Code</h1>
       <nav class="app-header-menu">
           <a class="app-header-menu-item" href="/wordsandcode/">Home</a>
             <hr class="app-header-menu-separator">
           
           <a class="app-header-menu-item" href="/wordsandcode/about/">About</a>
+            <hr class="app-header-menu-separator">
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/design_review_tips/">8 Tips for Effective Design Reviews</a>
             <hr class="app-header-menu-separator">
           
           <a class="app-header-menu-item" href="/wordsandcode/post/thanksgiving/">A-Z Tech to be thankful for in 2020</a>
@@ -129,18 +131,18 @@ AWS I started using Amazon’s web services earlier this year to host a project.
 <p>I mean, I don’t see why this one wouldn’t be on everyone’s list. To be honest, I don’t even know any other version control tool because this is the only one I need. Making new changes to code and getting updates to code has never been easier thanks to git. And while we are at it, <a href="https://github.com/gucci-ninja">follow me on Github</a> 😛</p>
 <h3 id="haskell">Haskell</h3>
 <p>So, if you’re looking to learn functional programming and don’t know where to start, I would highly recommend Haskell. I took a course on this in my final year of engineering and it did more than just give me another language to add to my toolbox. Functional programming really allowed me to look at problems a little differently. For example, it made the concept of trees really simple. In Haskell, you can just define a tree like an equation.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-haskell" data-lang="haskell"><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">Tree</span> a <span style="color:#f92672">=</span> <span style="color:#66d9ef">Leaf</span> a <span style="color:#f92672">|</span> <span style="color:#66d9ef">Branch</span> (<span style="color:#66d9ef">Tree</span> a) (<span style="color:#66d9ef">Tree</span> a)
-</code></pre></div><p>Isn’t that kind of cool? A Tree is a recursive data type that can either be a Leaf with value ‘a’ (Base Case) or a Branch with 2 Trees (Recursive Case). Completely changed my life. If you’re looking for a resource, <a href="http://learnyouahaskell.com/chapters">Learn You A Haskell</a> was pretty solid.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">Tree</span> a <span style="color:#f92672">=</span> <span style="color:#66d9ef">Leaf</span> a <span style="color:#f92672">|</span> <span style="color:#66d9ef">Branch</span> (<span style="color:#66d9ef">Tree</span> a) (<span style="color:#66d9ef">Tree</span> a)
+</span></span></code></pre></div><p>Isn’t that kind of cool? A Tree is a recursive data type that can either be a Leaf with value ‘a’ (Base Case) or a Branch with 2 Trees (Recursive Case). Completely changed my life. If you’re looking for a resource, <a href="http://learnyouahaskell.com/chapters">Learn You A Haskell</a> was pretty solid.</p>
 <h3 id="iot">IoT</h3>
 <p>Internet of Things has been a big deal and I’ve slowly become obsessed with curating my perfect Smart Home with voice controlled lighting, Google routines and that type of stuff. I am super thankful for IoT technology for letting me be my laziest self and also giving me so many opportunities to delve into hardware like the Raspberry Pi, which I stuffed into a shoe with a bunch of sensors, that could sense if the person wearing it tripped. My brother and I called them <a href="https://gucci-ninja.github.io/images/projects/tripshoes.png">Trip Shoes</a>.</p>
 <h3 id="jenkins">Jenkins</h3>
 <p>I thought of a lot of things that start with J that I’m thankful for — JavaScript, Java, even JQuery. But I don’t want to fill up my list with tech that everyone knows. I haven’t personally used Jenkins but I want to add it to my dev workflow and ultimately have a solid pipeline that is automated, thoroughly tested and easily monitored. Thankfully, Jenkins is free and open source so I can make it a part of my stack, like a lot of big tech companies have done.</p>
 <h3 id="kubernetes">Kubernetes</h3>
 <p>Recently I’ve been taking on a more DevOps role at work, managing a K8s deployment of one of our projects and it’s been a lot easier than I thought it would be. Even though a lot of the heavy lifting has already been done by people before me, most of last month I was debugging an issue with connections being reset for our end-users. I had to ssh into our K8s pod and figure out why things were going wrong and honestly, as long as you have the following commands with you — you can do anything.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get pods --all-namespaces    <span style="color:#75715e"># get all pods</span>
-$ kubectl logs -f &lt;pod-id&gt;             <span style="color:#75715e"># view logs</span>
-$ kubectl exec -t -i &lt;pod-id&gt; bash     <span style="color:#75715e"># execute command</span>
-</code></pre></div><h3 id="linux">Linux</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl get pods --all-namespaces    <span style="color:#75715e"># get all pods</span>
+</span></span><span style="display:flex;"><span>$ kubectl logs -f &lt;pod-id&gt;             <span style="color:#75715e"># view logs</span>
+</span></span><span style="display:flex;"><span>$ kubectl exec -t -i &lt;pod-id&gt; bash     <span style="color:#75715e"># execute command</span>
+</span></span></code></pre></div><h3 id="linux">Linux</h3>
 <p>So, I actually have a love-hate relationship with Linux because as an operating system, it’s open source, secure and doesn’t come with Windows bloatware, which is really cool. But sadly, my Linux distro of choice is Arch, so the setup process was basically like raising a child. I had to install my own display server, wifi manager and even the little volume controls I used to take for granted. I also learned the hard way that you should always back up your dotfiles (configurations) in case something bad happens. By the way if you ever wanted to see my dotfiles <a href="https://github.com/gucci-ninja/.dotfiles">here they are</a>! I’m super thankful that Linux exists so I can have a sick operating system and even more thankful to the Arch Wiki for being so informative. Not so thankful for the Arch community though since it can get kind of toxic for newcomers.</p>
 <h3 id="mongodb">MongoDB</h3>
 <p>Can’t really say much here, it’s a great database for big and small data. It’s a document based, schema-less database option but for my projects I use <code>mongoose</code>, a Node library that lets you model your application data and connects to MongoDB. So I have to write a schema for my objects, giving my application a little bit more structure while still maintaining the flexibility of MongoDB.</p>
@@ -162,12 +164,12 @@ $ kubectl exec -t -i &lt;pod-id&gt; bash     <span style="color:#75715e"># execu
 <p>The only encounter I’ve had with Unity was in 2015 when I made a replica of the famous Pong game following a YouTube tutorial. It was kind of tedious and there was a lot more physics involved than I signed up for. I guess I’m thankful to Unity for allowing me to realize that game development was not really my thing and that there are other options when it comes to software development. That being said, I wouldn’t be opposed to trying again with a game idea that actually excites me (because Pong was not it).</p>
 <h3 id="vuejs">Vue.js</h3>
 <p>I started working with Vue.js last year when I joined the Delta Hacks technical team. I thought it was kinda nice that I could learn a new frontend framework, especially since we got access to a Vue course on Udemy. Since then I’ve used it for a lot of my projects and really like how easy it is to use. The built-in directives make for some clean code writing, for example, you can just have this in your template:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">ul</span>&gt;
-  &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item in items&#34;</span> <span style="color:#a6e22e">:key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item.name&#34;</span>&gt;
-    {{ item.name }}
-  &lt;/<span style="color:#f92672">li</span>&gt;
-&lt;/<span style="color:#f92672">ul</span>&gt;
-</code></pre></div><p>Looks pretty easy right? 11/10 would recommend.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item in items&#34;</span> <span style="color:#a6e22e">:key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item.name&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    {{ item.name }}
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">ul</span>&gt;
+</span></span></code></pre></div><p>Looks pretty easy right? 11/10 would recommend.</p>
 <h3 id="world-wide-web">World Wide Web</h3>
 <p>This one is self-explanatory — none of us would really be here without the web so, gotta give big thanks. The www is designed to be decentralized, but even with a handful of tech giants having control over it, I’m thankful that there are some pages on the web that I’ve contributed to.</p>
 <h3 id="xml">XML</h3>
