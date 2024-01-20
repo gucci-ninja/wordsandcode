@@ -4,68 +4,58 @@
     <title>Posts on Words &amp; Code</title>
     <link>https://gucci-ninja.github.io/wordsandcode/post/</link>
     <description>Recent content in Posts on Words &amp; Code</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Jan 2024 11:07:55 -0500</lastBuildDate><atom:link href="https://gucci-ninja.github.io/wordsandcode/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Sep 2024 21:35:59 -0400</lastBuildDate>
+    <atom:link href="https://gucci-ninja.github.io/wordsandcode/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How I Built an AI Assistant for my Operating System</title>
+      <link>https://gucci-ninja.github.io/wordsandcode/post/archero/</link>
+      <pubDate>Sun, 08 Sep 2024 21:35:59 -0400</pubDate>
+      <guid>https://gucci-ninja.github.io/wordsandcode/post/archero/</guid>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;archero how &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; I search &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; a file with the word skibidi&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;OpenAI: Use the following command to search &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; files with the word &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;skibidi&amp;#34;&lt;/span&gt; in their name in the current directory and its subdirectories:&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    find . -type f -iname &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;*skibidi*&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;why-build-an-ai-assistant-for-arch-linux&#34;&gt;Why build an AI assistant for Arch Linux&lt;/h3&gt;&#xA;&lt;p&gt;My operating system of choice is Arch Linux. I installed it around 6 years ago and have been too lazy to switch to anything else. Also, it’s worked pretty well for me all these years so I don’t have any reason to. Of course, there are times when I fall behind on updates and everything starts to break. Things start to break so much that even updating won’t solve them. Every time this happens, I spend a good 2-3 hours of my day troubleshooting. I reference documentation, arch forums and a more recent addition - ChatGPT.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>8 Tips for Effective Design Reviews</title>
       <link>https://gucci-ninja.github.io/wordsandcode/post/design_review_tips/</link>
       <pubDate>Sat, 06 Jan 2024 11:07:55 -0500</pubDate>
-      
       <guid>https://gucci-ninja.github.io/wordsandcode/post/design_review_tips/</guid>
-      <description>8 Tips for Effective Design Reviews I had a recent design review that caused me to self-reflect and come up with some practical technical and non-technical tips on some aspects that may be overlooked in design reviews (lower-level designs in particular).
-Technical Tips 1. The S in SOLID In my lens, making code changes comes at the cost of introducing complexity. In order to reduce the complexity, I tend to lean towards modifying existing classes.</description>
+      <description>&lt;h3 id=&#34;8-tips-for-effective-design-reviews&#34;&gt;8 Tips for Effective Design Reviews&lt;/h3&gt;&#xA;&lt;p&gt;I had a recent design review that caused me to self-reflect and come up with some practical technical and non-technical tips on some aspects that may be overlooked in design reviews (lower-level designs in particular).&lt;/p&gt;&#xA;&lt;h3 id=&#34;technical-tips&#34;&gt;Technical Tips&lt;/h3&gt;&#xA;&lt;h4 id=&#34;1-the-s-in-solid&#34;&gt;1. The S in SOLID&lt;/h4&gt;&#xA;&lt;p&gt;In my lens, making code changes comes at the cost of introducing complexity. In order to reduce the complexity, I tend to lean towards modifying existing classes. I&amp;rsquo;ve learned that this is a bad practice and leads to classes being overloaded, diminishing readability and going against the single responsibility principle.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Flutter Web and Rive Animation Tutorial</title>
       <link>https://gucci-ninja.github.io/wordsandcode/post/flutter_rive_tutorial/</link>
       <pubDate>Tue, 31 May 2022 23:21:27 -0400</pubDate>
-      
       <guid>https://gucci-ninja.github.io/wordsandcode/post/flutter_rive_tutorial/</guid>
-      <description>Here is a beginner to intermediate tutorial for setting up a Flutter web app with Rive animations. I recently built a sliding tile game that incorporates Rive animations for the Flutter Hackathon. In this tutorial I’m going to show you how to add an animation to your Flutter web app and control it through user input.
-We will create a basketball animation that will get triggered each time the user clicks on a button.</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://visitor-badge.glitch.me/badge?page_id=gucci-ninja-flutter-rive&#34; alt=&#34;visitors&#34;&gt;&#xA;&lt;img src=&#34;../../img/flutter/header.jpeg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Here is a beginner to intermediate tutorial for setting up a Flutter web app with Rive animations. I recently built a &lt;a href=&#34;https://waterslide-kyy1knexs-gucci-ninja.vercel.app/#/&#34;&gt;sliding tile game&lt;/a&gt; that incorporates Rive animations for the Flutter Hackathon. In this tutorial I’m going to show you how to add an animation to your Flutter web app and control it through user input.&lt;/p&gt;&#xA;&lt;p&gt;We will create a basketball animation that will get triggered each time the user clicks on a button.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Your Guide to Arch Linux</title>
       <link>https://gucci-ninja.github.io/wordsandcode/post/arch_linux/</link>
       <pubDate>Wed, 17 Mar 2021 00:22:09 -0400</pubDate>
-      
       <guid>https://gucci-ninja.github.io/wordsandcode/post/arch_linux/</guid>
-      <description>Hi everyone! This guide is meant to take you through the process of setting up Arch Linux. It&amp;rsquo;s more of a set of guidelines rather than strict procedure. I&amp;rsquo;m hoping to give new or potential users an idea of what it&amp;rsquo;s like to dual boot your computer with Arch Linux.
-I started using Arch in 2018 after getting tired of Ubuntu and since then I have dealt with my fair share of problems (corrupted ISO, problematic updates, bluetooth nightmares).</description>
+      <description>&lt;p&gt;&lt;img src=&#34;../../img/arch.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Hi everyone! This guide is meant to take you through the process of setting up Arch Linux. It&amp;rsquo;s more of a set of guidelines rather than strict procedure. I&amp;rsquo;m hoping to give new or potential users an idea of what it&amp;rsquo;s like to dual boot your computer with Arch Linux.&lt;/p&gt;&#xA;&lt;p&gt;I started using Arch in 2018 after getting tired of Ubuntu and since then I have dealt with my fair share of problems (corrupted ISO, problematic updates, bluetooth nightmares). However, I can say with confidence that using Arch has given me a better understanding and appreciation for operating systems as a whole. There are some things I used to take for granted - like the wifi menu that comes pre-installed with Windows or Mac OS - that I had to install and configure when it came to Arch Linux.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to start contributing to open source</title>
       <link>https://gucci-ninja.github.io/wordsandcode/post/open_source/</link>
       <pubDate>Mon, 18 Jan 2021 02:14:58 -0400</pubDate>
-      
       <guid>https://gucci-ninja.github.io/wordsandcode/post/open_source/</guid>
-      <description>Hi everyone! Recently I made my first open source contribution and wanted to share my experience as well as any tips I have for developers getting into open source development.
-Step 1 — Finding motivation Due to COVID-19, I realized how much we rely on technology to bring people together. Then I thought about how much of that tech is made possible due to open source. I feel so grateful that I have access to and the potential to contribute to all this tech.</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://visitor-badge.glitch.me/badge?page_id=gucci-ninja-open-source&#34; alt=&#34;visitors&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../../img/james-harrison-vpOeXr5wmR4-unsplash.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Hi everyone! Recently I made my first open source contribution and wanted to share my experience as well as any tips I have for developers getting into open source development.&lt;/p&gt;&#xA;&lt;h3 id=&#34;step-1--finding-motivation&#34;&gt;Step 1 — Finding motivation&lt;/h3&gt;&#xA;&lt;p&gt;Due to COVID-19, I realized how much we rely on technology to bring people together. Then I thought about how much of that tech is made possible due to open source. I feel so grateful that I have access to and the potential to contribute to all this tech. So I wanted to give back to the open source community. I also wanted to be part of a community since I was feeling more disconnected while staying at home all the time. Being motivated was a key part in achieving my goal.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>A-Z Tech to be thankful for in 2020</title>
       <link>https://gucci-ninja.github.io/wordsandcode/post/thanksgiving/</link>
       <pubDate>Wed, 14 Oct 2020 20:46:12 -0400</pubDate>
-      
       <guid>https://gucci-ninja.github.io/wordsandcode/post/thanksgiving/</guid>
-      <description>Hi everyone! This Thanksgiving my mom did an activity with her grade 2’s where they went around their virtual classroom listing things they were thankful for from A-Z. This inspired me to write my very first Medium article on technologies that I’m thankful for this Thanksgiving :) These range from tech I’ve used to tech I am interested in using in the future.
-AWS I started using Amazon’s web services earlier this year to host a project.</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://visitor-badge.glitch.me/badge?page_id=gucci-ninja-thanksgiving&#34; alt=&#34;visitors&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../../img/tech.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Hi everyone! This Thanksgiving my mom did an activity with her grade 2’s where they went around their virtual classroom listing things they were thankful for from A-Z. This inspired me to write my very first Medium article on technologies that I’m thankful for this Thanksgiving :) These range from tech I’ve used to tech I am interested in using in the future.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Co-op</title>
       <link>https://gucci-ninja.github.io/wordsandcode/post/getting_started/</link>
       <pubDate>Fri, 03 Aug 2018 02:31:17 -0400</pubDate>
-      
       <guid>https://gucci-ninja.github.io/wordsandcode/post/getting_started/</guid>
-      <description>Since my co-op starts next week I thought it would be the perfect time to set up my blog so I can document my experiences. I hope I can capture what I learn every week and reflect on my time as an intern. Maybe in a year I will be showing this to the new set of co-ops.
-My First Day at Bell I left my house early like any responsible employee on their first day of work and arrived more than half an hour early.</description>
+      <description>&lt;p&gt;Since my co-op starts next week I thought it would be the perfect time to set up my blog so I can document my experiences. I hope I can capture what I learn every week and reflect on my time as an intern. Maybe in a year I will be showing this to the new set of co-ops.&lt;/p&gt;&#xA;&lt;h3 id=&#34;my-first-day-at-bell&#34;&gt;My First Day at Bell&lt;/h3&gt;&#xA;&lt;p&gt;I left my house early like any responsible employee on their first day of work and arrived more than half an hour early. After lots of waiting, the new interns (about 5 of us) were met by the current ones (4). My first impression was that the people at Bell are really welcoming. Everyone wants you to succeed and learn new things along the way.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

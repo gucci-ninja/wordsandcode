@@ -4,37 +4,31 @@
     <title>Your Guide to Arch Linux // Words &amp; Code</title>
     <link rel="shortcut icon" href="https://pngimage.net/wp-content/uploads/2018/05/bullet-style-png-3-300x200.png" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.108.0">
+    <meta name="generator" content="Hugo 0.134.1">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Suhavi Sandhu" />
     <meta name="description" content="" />
     <link rel="stylesheet" href="https://gucci-ninja.github.io/wordsandcode/css/main.min.571377f7ee2bcabe58ee65dc02d074a6d077aaf4d181a3bdcb4ddba832ebe8e9.css" />
 
     
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-194918019-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Your Guide to Arch Linux"/>
-<meta name="twitter:description" content="Hi everyone! This guide is meant to take you through the process of setting up Arch Linux. It&rsquo;s more of a set of guidelines rather than strict procedure. I&rsquo;m hoping to give new or potential users an idea of what it&rsquo;s like to dual boot your computer with Arch Linux.
-I started using Arch in 2018 after getting tired of Ubuntu and since then I have dealt with my fair share of problems (corrupted ISO, problematic updates, bluetooth nightmares)."/>
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Your Guide to Arch Linux">
+  <meta name="twitter:description" content="
+Hi everyone! This guide is meant to take you through the process of setting up Arch Linux. It’s more of a set of guidelines rather than strict procedure. I’m hoping to give new or potential users an idea of what it’s like to dual boot your computer with Arch Linux.
+I started using Arch in 2018 after getting tired of Ubuntu and since then I have dealt with my fair share of problems (corrupted ISO, problematic updates, bluetooth nightmares). However, I can say with confidence that using Arch has given me a better understanding and appreciation for operating systems as a whole. There are some things I used to take for granted - like the wifi menu that comes pre-installed with Windows or Mac OS - that I had to install and configure when it came to Arch Linux.">
 
-    <meta property="og:title" content="Your Guide to Arch Linux" />
-<meta property="og:description" content="Hi everyone! This guide is meant to take you through the process of setting up Arch Linux. It&rsquo;s more of a set of guidelines rather than strict procedure. I&rsquo;m hoping to give new or potential users an idea of what it&rsquo;s like to dual boot your computer with Arch Linux.
-I started using Arch in 2018 after getting tired of Ubuntu and since then I have dealt with my fair share of problems (corrupted ISO, problematic updates, bluetooth nightmares)." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://gucci-ninja.github.io/wordsandcode/post/arch_linux/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-03-17T00:22:09-04:00" />
-<meta property="article:modified_time" content="2021-03-17T00:22:09-04:00" />
+    <meta property="og:url" content="https://gucci-ninja.github.io/wordsandcode/post/arch_linux/">
+  <meta property="og:site_name" content="Words & Code">
+  <meta property="og:title" content="Your Guide to Arch Linux">
+  <meta property="og:description" content="
+Hi everyone! This guide is meant to take you through the process of setting up Arch Linux. It’s more of a set of guidelines rather than strict procedure. I’m hoping to give new or potential users an idea of what it’s like to dual boot your computer with Arch Linux.
+I started using Arch in 2018 after getting tired of Ubuntu and since then I have dealt with my fair share of problems (corrupted ISO, problematic updates, bluetooth nightmares). However, I can say with confidence that using Arch has given me a better understanding and appreciation for operating systems as a whole. There are some things I used to take for granted - like the wifi menu that comes pre-installed with Windows or Mac OS - that I had to install and configure when it came to Arch Linux.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2021-03-17T00:22:09-04:00">
+    <meta property="article:modified_time" content="2021-03-17T00:22:09-04:00">
 
 
   </head>
@@ -56,6 +50,9 @@ I started using Arch in 2018 after getting tired of Ubuntu and since then I have
             <hr class="app-header-menu-separator">
           
           <a class="app-header-menu-item" href="/wordsandcode/post/flutter_rive_tutorial/">Flutter Web and Rive Animation Tutorial</a>
+            <hr class="app-header-menu-separator">
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/archero/">How I Built an AI Assistant for my Operating System</a>
             <hr class="app-header-menu-separator">
           
           <a class="app-header-menu-item" href="/wordsandcode/post/open_source/">How to start contributing to open source</a>
@@ -213,7 +210,7 @@ I started using Arch in 2018 after getting tired of Ubuntu and since then I have
 </span></span><span style="display:flex;"><span>reboot
 </span></span></code></pre></div><p>Now you can take out the USB.</p>
 <h1 id="step-10---take-a-break-because-youve-come-this-far">Step 10 - Take a break because you&rsquo;ve come this far</h1>
-<p>😎</p>
+<p>&#x1f60e;</p>
 <h1 id="step-11---users">Step 11 - Users</h1>
 <p>After rebooting, login as root and create a user.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>useradd -m -g wheel suhavi
