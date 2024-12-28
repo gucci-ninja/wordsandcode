@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Elastic Community Conference Tech Talk // Words &amp; Code</title>
+    <link rel="shortcut icon" href="https://pngimage.net/wp-content/uploads/2018/05/bullet-style-png-3-300x200.png" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.134.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Suhavi Sandhu" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/wordsandcode/css/main.min.a7dfeaabca38e15028cf2fc45c1eca64f842bd62529f0bf081a55d5270f9d37a.css" />
+    
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Elastic Community Conference Tech Talk">
+  <meta name="twitter:description" content="Developing a Decentralized Application with Elasticsearch and QR Codes
+Introduction Last year thanksgiving I wrote an article about technologies that I was grateful for and I wrote about 26 technologies starting from the letter A all the way to Z and some of these I had used before and some of them I had planned to use in the future. When I was looking for my next project to work on I thought of going back to that list and picking three at random to to sort of build something with. I ended up choosing Elasticsearch, QR codes, and blockchain for this project. That’s the backstory of how I got here.">
+
+    <meta property="og:url" content="https://gucci-ninja.github.io/wordsandcode/post/elastic_cc/">
+  <meta property="og:site_name" content="Words & Code">
+  <meta property="og:title" content="Elastic Community Conference Tech Talk">
+  <meta property="og:description" content="Developing a Decentralized Application with Elasticsearch and QR Codes
+Introduction Last year thanksgiving I wrote an article about technologies that I was grateful for and I wrote about 26 technologies starting from the letter A all the way to Z and some of these I had used before and some of them I had planned to use in the future. When I was looking for my next project to work on I thought of going back to that list and picking three at random to to sort of build something with. I ended up choosing Elasticsearch, QR codes, and blockchain for this project. That’s the backstory of how I got here.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2021-04-02T22:17:26-05:00">
+    <meta property="article:modified_time" content="2021-04-02T22:17:26-05:00">
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://gucci-ninja.github.io/wordsandcode/"><img class="app-header-avatar" src="/wordsandcode/img/avatar.jpg" alt="Suhavi Sandhu" /></a>
+      <span class="app-header-title">Words &amp; Code</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/wordsandcode/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/design_review_tips/">8 Tips for Effective Design Reviews</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/thanksgiving/">A-Z Tech to be thankful for in 2020</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/elastic_cc/">Elastic Community Conference Tech Talk</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/flutter_rive_tutorial/">Flutter Web and Rive Animation Tutorial</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/archero/">How I Built an AI Assistant for my Operating System</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/open_source/">How to start contributing to open source</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/kafka_summit/">Kafka Summit Tech Talk</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/arch_linux/">Your Guide to Arch Linux</a>
+      </nav>
+      <p>Software engineer passionate about building powerful, useful and open source systems. Thanks for dropping by! 💛</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/gucci-ninja" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://twitter.com/SuhaviSandhu" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+          </a>
+        
+          <a href="https://www.linkedin.com/in/suhavi/" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>LinkedIn</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Elastic Community Conference Tech Talk</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Apr 2, 2021
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          8 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p><strong>Developing a Decentralized Application with Elasticsearch and QR Codes</strong></p>
+<hr>
+<h3 id="introduction"><strong>Introduction</strong></h3>
+<p>Last year thanksgiving I wrote an article about technologies that I was grateful for and I wrote about 26 technologies starting from the letter A all the way to Z and some of these I had used before and some of them I had planned to use in the future. When I was looking for my next project to work on I thought of going back to that list and picking three at random to to sort of build something with. I ended up choosing Elasticsearch, QR codes, and blockchain for this project. That’s the backstory of how I got here.</p>
+<h3 id="agenda"><strong>Agenda</strong></h3>
+<p>In today’s talk, I’ll walk through my process of developing a decentralized application and how I integrated QR codes into it. Then, I’ll discuss how I leveraged Elasticsearch to observe transaction data on the blockchain and sync that data in real time. Finally, I’ll present a demo showcasing all the moving parts of the application, including the Elasticsearch dashboard.</p>
+<h2 id="starting-with-an-idea"><strong>Starting with an Idea</strong></h2>
+<p>When building something new, the process often begins with an idea or a problem you want to solve. From there, you identify the right technologies and stack to bring that idea to life.</p>
+<p>However, I approached this project a bit differently. I had a set of tools I wanted to work with but no clear idea of what to build. So, I analyzed what each technology excels at:</p>
+<ul>
+<li><strong>Blockchain</strong> is great for storing state and maintaining a reliable history of transactions.</li>
+<li><strong>QR codes</strong> can serve as unique identifiers for tracking assets.</li>
+<li><strong>Elasticsearch</strong> enables real-time data indexing and querying.</li>
+</ul>
+<p>This led me to explore applications in the <strong>supply chain industry</strong>, where tracking shipments and ensuring data transparency are crucial. Blockchain’s immutability made it a strong fit for this use case.</p>
+<p>But I wanted to take it a step further. Many supply chain applications already use distributed ledgers, but I wanted to incorporate the <strong>consumer perspective</strong>. Instead of just tracking an item from production to a distribution center, I wanted to follow its journey even after reaching the consumer.</p>
+<p>This is especially relevant for farmed goods and local produce—allowing people to verify if something is truly locally sourced and when it was grown or harvested.</p>
+<h2 id="building-a-decentralized-application"><strong>Building a Decentralized Application</strong></h2>
+<p>To build a decentralized application (dApp), you need four essential tools:</p>
+<ol>
+<li><strong>A Smart Contract Language</strong>
+<ul>
+<li>Smart contracts act as binding agreements that define the transactions on a blockchain.</li>
+<li>I used <strong>Solidity</strong>, a language with a syntax similar to C++, to define the contract’s methods and data structures.</li>
+</ul>
+</li>
+<li><strong>Compilation and Migration Tools</strong>
+<ul>
+<li>Once written, the smart contract needs to be compiled and deployed onto the blockchain.</li>
+<li>I used <strong>Truffle</strong>, which simplifies compiling, migrating, and managing smart contracts.</li>
+<li>Migration in blockchain is somewhat like database migrations, but with a key difference: when you migrate a smart contract, all previous transactions tied to the old contract become invalid because they no longer adhere to the new contract rules.</li>
+</ul>
+</li>
+<li>Deploy your contract
+<ul>
+<li>A local blockchain client running. For this, I chose <strong>Ganache</strong>, though <strong>TestRPC</strong> is another popular option.</li>
+<li>Once your contract is written, compiled, and migrated, you can finally deploy it. Ganache is an Ethereum client that runs locally, meaning you don’t need to spend money on Ethereum gas fees while testing and compiling multiple times. It provides a space to host your contract, view transactions, and track mined blocks. We’ll take a look at it later in the demo.</li>
+</ul>
+</li>
+<li>Make transactions with Web3
+<ul>
+<li>Allows you to interact with the blockchain</li>
+<li>Once your contract is deployed, you need a way to access its methods and retrieve data stored on the blockchain. Web3 provides a vast API for making transactions and interacting with smart contracts.</li>
+<li>If you&rsquo;re building a dApp with <strong>React Native</strong>, an alternative to Web3 is <strong>Drizzle</strong>, which I also used since, to my knowledge, there isn’t a direct Web3 wrapper for React Native.</li>
+</ul>
+</li>
+</ol>
+<p>These four tools—Solidity, Truffle, Ganache, and Web3—were all I needed to build the dApp, and the best part was that it was completely free. Initially, I thought I’d need to invest money since Ethereum is involved, but I was able to develop and test everything without spending anything.</p>
+<hr>
+<h3 id="smart-contract"><strong>Smart Contract</strong></h3>
+<p>Now, moving on to the smart contract itself, I want to dive deeper into its contents.</p>
+<p>I decided to store two main things:</p>
+<ol>
+<li><strong>Items</strong> – Each item has:
+<ul>
+<li>A unique <strong>ID</strong></li>
+<li>A <strong>name</strong></li>
+<li>A <strong>tracking count</strong> (number of times the item has been recorded in the system)</li>
+<li>The <strong>creator’s address</strong> (who registered the item)</li>
+<li>A <strong>mapping of states</strong>, which is essentially an array that tracks the item’s journey—from its initial registration to its current location.</li>
+</ul>
+</li>
+<li><strong>State</strong> - Each state has
+<ul>
+<li>The date when state was recorded</li>
+<li>The location where state was recorded</li>
+<li>The <strong>editor’s address</strong> (who edited the item state)</li>
+</ul>
+</li>
+</ol>
+<p>From here, we’ll explore how these properties are used within the dApp.</p>
+<h3 id="qr-codes"><strong>QR Codes</strong></h3>
+<p>To enhance usability, I integrated <strong>QR codes</strong> into the system. Users can register items on the blockchain, and the application generates a QR code that can be printed and attached to the item. Every time someone scans the QR code, a new state is added to the blockchain, tracking the item’s journey over time.</p>
+<h3 id="observibility-with-elasticsearch"><strong>Observibility with Elasticsearch</strong></h3>
+<p>Next, I’ll talk about observibility and how I used <strong>Elasticsearch</strong> to track transaction data.</p>
+<p>To set up my Elasticsearch instance, I used <strong>Docker Compose</strong>, which I highly recommend for anyone working with Elastic products. It simplifies deployment—just configure the <code>docker-compose.yml</code> file, and you’re good to go. Within minutes, I had Elasticsearch up and running and was able to start building dashboards in <strong>Kibana</strong>.</p>
+<hr>
+<h3 id="syncing-blockchain-data-with-elasticsearch"><strong>Syncing Blockchain Data with Elasticsearch</strong></h3>
+<p>One of the biggest challenges was syncing my <strong>blockchain</strong> with <strong>Elasticsearch</strong>. There are two main scenarios for doing this:</p>
+<ol>
+<li><strong>Existing Blockchain</strong> – If the blockchain has already been running with transactions recorded, and you introduce Elasticsearch afterward.</li>
+<li><strong>Simultaneous Startup</strong> – If both the blockchain and Elasticsearch start at the same time, ensuring real-time synchronization.</li>
+</ol>
+<p>I followed three key steps to achieve real-time syncing:</p>
+<ol>
+<li><strong>Establishing Connections</strong>
+<ul>
+<li>I set up a <strong>Node.js</strong> server to communicate with both <strong>Ganache</strong> (Ethereum client) and <strong>Elasticsearch</strong>, enabling them to interact seamlessly.</li>
+</ul>
+</li>
+<li><strong>Polling for New Blocks</strong>
+<ul>
+<li>The server continuously monitors the blockchain for new blocks, ensuring that no transactions are missed.</li>
+</ul>
+</li>
+<li><strong>Extracting and Indexing Transactions</strong>
+<ul>
+<li>Once a new block is found, the server checks if it contains transactions (such as item registrations or state updates).</li>
+<li>If a transaction exists, it gets indexed into <strong>Elasticsearch</strong>, keeping it in sync with the blockchain.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="blockchain-code"><strong>Blockchain Code</strong></h3>
+<p>Here&rsquo;s a simplified version of how I iterated through the blockchain:</p>
+<ul>
+<li><strong>Start Block</strong> = 0</li>
+<li><strong>Latest Block</strong> = <code>getLatestBlock()</code> (Web3 API method)</li>
+<li><strong>Current Block</strong> = Start Block</li>
+</ul>
+<p>A <strong>while loop</strong> runs as long as <code>currentBlock &lt; latestBlock</code>, processing each block and checking for transactions.</p>
+<p>As new blocks are added, <code>latestBlock</code> updates dynamically, ensuring real-time synchronization.</p>
+<hr>
+<h3 id="demo-environment"><strong>Demo Environment</strong></h3>
+<p>I have four main components running:</p>
+<ol>
+<li><strong>Elasticsearch &amp; Kibana</strong> (on the right)
+<ul>
+<li>Running via Docker Compose, providing real-time indexing and visualizations.</li>
+</ul>
+</li>
+<li><strong>Mobile App (&ldquo;Digital Orange&rdquo;)</strong> (mirrored from my phone)
+<ul>
+<li>Built with <strong>React Native</strong>, it integrates with Web3 for blockchain transactions and supports QR code generation/scanning.</li>
+</ul>
+</li>
+<li><strong>Ganache (Ethereum Client)</strong> (bottom left)
+<ul>
+<li>Running the blockchain locally, displaying transactions and mined blocks.</li>
+</ul>
+</li>
+<li><strong>Node.js Server</strong> (top left)
+<ul>
+<li>Polls the blockchain and syncs data with Elasticsearch.</li>
+</ul>
+</li>
+</ol>
+<p>At the moment, the server is continuously analyzing blocks, checking for new transactions. If no changes are detected, it skips them.</p>
+<hr>
+<h3 id="registering-an-item"><strong>Registering an Item</strong></h3>
+<ul>
+<li>Upon opening the app, the <strong>login screen</strong> appears (authentication via <strong>Firebase</strong>).</li>
+<li>I navigate to the <strong>&ldquo;Register Item&rdquo;</strong> section.</li>
+<li>I enter &ldquo;Apples&rdquo; as the item name and hit <strong>Add</strong>.</li>
+<li>The system generates a <strong>QR code</strong>, and a <strong>blockchain transaction</strong> is recorded.</li>
+<li>The transaction details (hash, gas used, block number) are displayed.</li>
+<li>The Node.js server attempts to index it in Elasticsearch.</li>
+</ul>
+<p>At this point, indexing fails because the item only has <strong>one recorded state</strong>. To create <strong>geo-based tracking</strong>, we need at least <strong>two states</strong> to form a path.</p>
+<hr>
+<h3 id="scanning-an-item"><strong>Scanning an Item</strong></h3>
+<ul>
+<li>I go to the <strong>QR scanner</strong> and scan an existing QR code.</li>
+<li>A new transaction is recorded, updating the item’s state.</li>
+<li>The transaction is successfully indexed in <strong>Elasticsearch</strong>.</li>
+<li>The timeline now shows timestamps and <strong>latitude/longitude</strong> coordinates for each recorded state.</li>
+</ul>
+<p><em>Note: The location data here is spoofed—I didn&rsquo;t actually travel from Brazil to the U.S. and then Antarctica!</em></p>
+<hr>
+<h3 id="dashboard"><strong>Dashboard</strong></h3>
+<p>There is a <strong>dashboard</strong> I built in <strong>Kibana</strong>, which visualizes blockchain data in Elasticsearch:</p>
+<ul>
+<li><strong>Map View</strong> – Displays the journey of tracked items, with each color representing a unique item’s path.</li>
+<li><strong>Word Cloud</strong> – Highlights the most frequently registered items.</li>
+<li><strong>Active Accounts</strong> – Lists the most active blockchain addresses (Ganache provides 10 by default).</li>
+</ul>
+<p>This visualization makes it easy to <strong>track supply chains, verify authenticity, and ensure transparency</strong>.</p>
+<hr>
+<h3 id="final-thoughts"><strong>Final Thoughts</strong></h3>
+<p>Working with <strong>blockchain, Elasticsearch, and QR codes</strong> has been a <strong>rewarding experience</strong>. Initially, I found these technologies intimidating, but once I explored their documentation and built a project around them, I realized how powerful and accessible they are.</p>
+<p>If you&rsquo;re new to <strong>blockchain or Elasticsearch</strong>, I hope you found some useful takeaways from my experience!</p>
+<hr>
+<h3 id="resources"><strong>Resources</strong></h3>
+<p>Here are some useful links:</p>
+<ul>
+<li>**The DigitalOrange <a href="https://github.com/gucci-ninja/DigitalOrange">Repo**</a> – Contains the full application and server-side code for syncing blockchain data to Elasticsearch.</li>
+<li><strong>Truffle Suite</strong> – A great tool for Ethereum smart contract development.</li>
+<li><strong>Ether to Elasticsearch</strong> – A project that inspired my approach to syncing blockchain data.</li>
+</ul>
+<hr>
+<p>This was a talk I presented at the 2021 Elastic Community Conference. If you would like to watch the full thing please check out <a href="https://www.youtube.com/watch?v=XQbszbVQ3DE">https://www.youtube.com/watch?v=XQbszbVQ3DE</a></p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

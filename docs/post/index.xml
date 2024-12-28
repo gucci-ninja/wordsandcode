@@ -30,6 +30,20 @@
       <description>&lt;p&gt;&lt;img src=&#34;https://visitor-badge.glitch.me/badge?page_id=gucci-ninja-flutter-rive&#34; alt=&#34;visitors&#34;&gt;&#xA;&lt;img src=&#34;../../img/flutter/header.jpeg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Here is a beginner to intermediate tutorial for setting up a Flutter web app with Rive animations. I recently built a &lt;a href=&#34;https://waterslide-kyy1knexs-gucci-ninja.vercel.app/#/&#34;&gt;sliding tile game&lt;/a&gt; that incorporates Rive animations for the Flutter Hackathon. In this tutorial I’m going to show you how to add an animation to your Flutter web app and control it through user input.&lt;/p&gt;&#xA;&lt;p&gt;We will create a basketball animation that will get triggered each time the user clicks on a button.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Kafka Summit Tech Talk</title>
+      <link>https://gucci-ninja.github.io/wordsandcode/post/kafka_summit/</link>
+      <pubDate>Thu, 16 Sep 2021 22:08:17 -0500</pubDate>
+      <guid>https://gucci-ninja.github.io/wordsandcode/post/kafka_summit/</guid>
+      <description>&lt;p&gt;For those interested, I gave a talk at the Kafka APAC Summit in 2021 on how to leverage Kafka for decentralized applications. The video is still up on confluent’s website but I went and added most of the topics I discussed here.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-a-decentralized-app-dapp&#34;&gt;What is a decentralized app (DApp)&lt;/h2&gt;&#xA;&lt;p&gt;Decentralized applications are programs that leverage a blockchain or peer-to-peer network to give users more control of their data. Decentralized applications are not really that new, you might have heard of some popular ones or even used them like BitTorrent. It uses the feeding and seeding model, where file sharing is made possible by users who volunteer to transfer their data to others and those users who propagate the data forwards by becoming seeders for the file.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Elastic Community Conference Tech Talk</title>
+      <link>https://gucci-ninja.github.io/wordsandcode/post/elastic_cc/</link>
+      <pubDate>Fri, 02 Apr 2021 22:17:26 -0500</pubDate>
+      <guid>https://gucci-ninja.github.io/wordsandcode/post/elastic_cc/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Developing a Decentralized Application with Elasticsearch and QR Codes&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;introduction&#34;&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;p&gt;Last year thanksgiving I wrote an article about technologies that I was grateful for and I wrote about 26 technologies starting from the letter A all the way to Z and some of these I had used before and some of them I had planned to use in the future. When I was looking for my next project to work on I thought of going back to that list and picking three at random to to sort of build something with. I ended up choosing Elasticsearch, QR codes, and blockchain for this project. That’s the backstory of how I got here.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Your Guide to Arch Linux</title>
       <link>https://gucci-ninja.github.io/wordsandcode/post/arch_linux/</link>
       <pubDate>Wed, 17 Mar 2021 00:22:09 -0400</pubDate>
