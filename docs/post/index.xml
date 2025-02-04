@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Words &amp; Code</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Sep 2024 21:35:59 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2025 19:38:45 -0500</lastBuildDate>
     <atom:link href="https://gucci-ninja.github.io/wordsandcode/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI ABCs</title>
+      <link>https://gucci-ninja.github.io/wordsandcode/post/ai_abc/</link>
+      <pubDate>Mon, 03 Feb 2025 19:38:45 -0500</pubDate>
+      <guid>https://gucci-ninja.github.io/wordsandcode/post/ai_abc/</guid>
+      <description>&lt;p&gt;Hi all! This piece is inspired by a piece I wrote back in 2020 when I was looking to continue my learning journey post-graduation. Now in 2025, I feel as though what I learned in university is not necessarily relevant anymore. Don’t get me wrong, university did teach me the basics and fundamentals, but when you’re not constantly practicing, those skills can weaken overtime. Specifically, I am behind with respect to AI and the speed at which it has taken over our world. All of a sudden, things are becoming easier and I am becoming deceptively lazier. The current state we are at has gotten me thinking of the consequences of this technology and the implications that may arise from us moving too fast. I’ve consolidated a list of tools, concepts and technologies I plan to expand my knowledge on AI, from A to Z.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>How I Built an AI Assistant for my Operating System</title>
       <link>https://gucci-ninja.github.io/wordsandcode/post/archero/</link>
