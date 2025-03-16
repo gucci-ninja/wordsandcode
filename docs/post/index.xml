@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Words &amp; Code</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Feb 2025 19:38:45 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 16 Mar 2025 16:48:30 -0700</lastBuildDate>
     <atom:link href="https://gucci-ninja.github.io/wordsandcode/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using FAISS for local semantic search</title>
+      <link>https://gucci-ninja.github.io/wordsandcode/post/ai_search/</link>
+      <pubDate>Sun, 16 Mar 2025 16:48:30 -0700</pubDate>
+      <guid>https://gucci-ninja.github.io/wordsandcode/post/ai_search/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This weekend I decided to play around with vector databases, since I had mentioned in my last post how they play a big role in AI-powered search. In general, AI-powered search is popping off for a good reason - it significantly improves the accuracy and relevance of search results because it understands the &lt;em&gt;intention&lt;/em&gt; behind a search query. So much so that it has deprecated the need for stack overflow in my life.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>AI ABCs</title>
       <link>https://gucci-ninja.github.io/wordsandcode/post/ai_abc/</link>

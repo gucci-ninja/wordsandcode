@@ -2,10 +2,12 @@ baseurl = "https://gucci-ninja.github.io/wordsandcode/"
 languageCode = "en-us"
 title = "Words & Code"
 theme = "m10c"
-paginate = 8
 publishDir = "docs"
 enableEmoji=true
 googleAnalytics="UA-194918019-1"
+
+[pagination]
+  pagerSize = 8
 
 [menu]
   [[menu.main]]
