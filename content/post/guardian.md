@@ -20,13 +20,13 @@ They don’t answer
 
 **My Personal Experience as an Engineer**
 
-In my day-to-day, I’ve started noticing a predictable pattern. I’ll be talking about a carefully considered design with clear boundaries and fail-safes and the question will inevitably come up: Can we just use an LLM for this instead?
+In many engineering discussions, a predictable pattern tends to emerge. You'll be talking about a carefully considered design with clear boundaries and fail-safes and the question will inevitably come up: Can we just use an LLM for this instead?
 
 I usually feel reluctant when this happens, not because I hate new tech but because I have read too many horror stories. The most notable one that comes to mind is the Replit incident in 2025 where an autonomous agent ended up deleting a production database.
 
 If I’m being completely honest, my reluctance also comes from a place of guilt. I’ve fallen into the trap and manipulated agentic bots to do the ‘dirty work’ for me, tasks I would never officially approve an agent to handle because I know deep down, the guard rails don’t exist.
 
-I waited for some time for a framework to come along to fix this problem but today, I want to share a solution that I think can help instill control back into the picture.
+I waited for some time for a framework to come along to fix this problem so I'm sharing a solution that I think can help instill control back into the picture.
 
 **The Solution: Contract-Based Access Control**
 
@@ -140,6 +140,6 @@ Building this PoC confirmed a few things that I had suspected for a while, but s
 
 ## Conclusion
 
-I started this project because I was tired of the anxiety of watching autonomous agents operate in "God Mode" with nothing but a raw API key and a prayer. I would call this either contract or intent-based access control (CBAC? IBAC? I’m not good with names), and I hope it represents a shift in how we think about infrastructure. I want to continue making it robust and work towards a ‘plug-and-play’ framework that you can put between any existing service to protect it.
+I started this project after repeatedly seeing the risks of autonomous agents operating in "God Mode" with nothing but a raw API key and a prayer. I would call this either contract or intent-based access control (CBAC? IBAC? I’m not good with names), and I hope it represents a shift in how we think about infrastructure. I want to continue making it robust and work towards a ‘plug-and-play’ framework that you can put between any existing service to protect it.
 
 If you’re interested I have pushed everything to a [Github repository](https://github.com/gucci-ninja/Guardian).
