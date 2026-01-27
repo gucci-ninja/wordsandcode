@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en-us">
-  <head>
+  <head><script src="/wordsandcode/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=wordsandcode/livereload" data-no-instant defer></script>
     <title>Using FAISS for local semantic search // Words &amp; Code</title>
     <link rel="shortcut icon" href="https://pngimage.net/wp-content/uploads/2018/05/bullet-style-png-3-300x200.png" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.134.1">
+    <meta name="generator" content="Hugo 0.154.5">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Suhavi Sandhu" />
     <meta name="description" content="" />
@@ -17,7 +17,7 @@
   <meta name="twitter:title" content="Using FAISS for local semantic search">
   <meta name="twitter:description" content="Introduction This weekend I decided to play around with vector databases, since I had mentioned in my last post how they play a big role in AI-powered search. In general, AI-powered search is popping off for a good reason - it significantly improves the accuracy and relevance of search results because it understands the intention behind a search query. So much so that it has deprecated the need for stack overflow in my life.">
 
-    <meta property="og:url" content="https://gucci-ninja.github.io/wordsandcode/post/ai_search/">
+    <meta property="og:url" content="http://localhost:1313/wordsandcode/post/ai_search/">
   <meta property="og:site_name" content="Words & Code">
   <meta property="og:title" content="Using FAISS for local semantic search">
   <meta property="og:description" content="Introduction This weekend I decided to play around with vector databases, since I had mentioned in my last post how they play a big role in AI-powered search. In general, AI-powered search is popping off for a good reason - it significantly improves the accuracy and relevance of search results because it understands the intention behind a search query. So much so that it has deprecated the need for stack overflow in my life.">
@@ -47,6 +47,9 @@
              - 
           
           <a class="app-header-menu-item" href="/wordsandcode/post/ai_abc/">AI ABCs</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/guardian/">Building Deterministic Guardrails for Autonomous Agents</a>
              - 
           
           <a class="app-header-menu-item" href="/wordsandcode/post/elastic_cc/">Elastic Community Conference Tech Talk</a>
@@ -189,31 +192,31 @@
 <table>
   <thead>
       <tr>
-          <th style="text-align: left"><strong>Metric</strong></th>
-          <th style="text-align: left"><strong>FAISS (Local)</strong></th>
-          <th style="text-align: left"><strong>OpenAI API Search</strong></th>
+          <th><strong>Metric</strong></th>
+          <th><strong>FAISS (Local)</strong></th>
+          <th><strong>OpenAI API Search</strong></th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">Query Speed</td>
-          <td style="text-align: left"><strong>Milliseconds</strong></td>
-          <td style="text-align: left"><strong>Seconds (API latency)</strong></td>
+          <td>Query Speed</td>
+          <td><strong>Milliseconds</strong></td>
+          <td><strong>Seconds (API latency)</strong></td>
       </tr>
       <tr>
-          <td style="text-align: left">Privacy</td>
-          <td style="text-align: left"><strong>High</strong> (Local processing)</td>
-          <td style="text-align: left"><strong>Low</strong> (Data sent to API)</td>
+          <td>Privacy</td>
+          <td><strong>High</strong> (Local processing)</td>
+          <td><strong>Low</strong> (Data sent to API)</td>
       </tr>
       <tr>
-          <td style="text-align: left">Cost</td>
-          <td style="text-align: left"><strong>Free</strong></td>
-          <td style="text-align: left"><strong>Pay-per-query</strong></td>
+          <td>Cost</td>
+          <td><strong>Free</strong></td>
+          <td><strong>Pay-per-query</strong></td>
       </tr>
       <tr>
-          <td style="text-align: left">Accuracy</td>
-          <td style="text-align: left"><strong>Comparable</strong></td>
-          <td style="text-align: left"><strong>Depends on API model</strong></td>
+          <td>Accuracy</td>
+          <td><strong>Comparable</strong></td>
+          <td><strong>Depends on API model</strong></td>
       </tr>
   </tbody>
 </table>

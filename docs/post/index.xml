@@ -2,87 +2,94 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Words &amp; Code</title>
-    <link>https://gucci-ninja.github.io/wordsandcode/post/</link>
+    <link>http://localhost:1313/wordsandcode/post/</link>
     <description>Recent content in Posts on Words &amp; Code</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Mar 2025 16:48:30 -0700</lastBuildDate>
-    <atom:link href="https://gucci-ninja.github.io/wordsandcode/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Jan 2026 16:10:00 -0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/wordsandcode/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building Deterministic Guardrails for Autonomous Agents</title>
+      <link>http://localhost:1313/wordsandcode/post/guardian/</link>
+      <pubDate>Mon, 26 Jan 2026 16:10:00 -0800</pubDate>
+      <guid>http://localhost:1313/wordsandcode/post/guardian/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;The Problem: Reasonableness Gap&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;This is a problem I have been thinking about for some time now. Modern distributed systems no longer just serve human users, they interact with autonomous agents capable of generating adversarial, poorly scoped or ‘hallucinated’ requests at scale. Traditional access control models like RBAC, IAM policies assume that callers are acting in good-faith and fail to encode reasonableness as a first-class concern.&lt;/p&gt;&#xA;&lt;p&gt;Most access control systems are able to answer basic questions like&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Using FAISS for local semantic search</title>
-      <link>https://gucci-ninja.github.io/wordsandcode/post/ai_search/</link>
+      <link>http://localhost:1313/wordsandcode/post/ai_search/</link>
       <pubDate>Sun, 16 Mar 2025 16:48:30 -0700</pubDate>
-      <guid>https://gucci-ninja.github.io/wordsandcode/post/ai_search/</guid>
+      <guid>http://localhost:1313/wordsandcode/post/ai_search/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This weekend I decided to play around with vector databases, since I had mentioned in my last post how they play a big role in AI-powered search. In general, AI-powered search is popping off for a good reason - it significantly improves the accuracy and relevance of search results because it understands the &lt;em&gt;intention&lt;/em&gt; behind a search query. So much so that it has deprecated the need for stack overflow in my life.&lt;/p&gt;</description>
     </item>
     <item>
       <title>AI ABCs</title>
-      <link>https://gucci-ninja.github.io/wordsandcode/post/ai_abc/</link>
+      <link>http://localhost:1313/wordsandcode/post/ai_abc/</link>
       <pubDate>Mon, 03 Feb 2025 19:38:45 -0500</pubDate>
-      <guid>https://gucci-ninja.github.io/wordsandcode/post/ai_abc/</guid>
+      <guid>http://localhost:1313/wordsandcode/post/ai_abc/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;../../img/ai_abcs.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Back in 2020, fresh out of university, I was eager to continue learning. Now in 2025, I see how rapidly AI has evolved—what I learned back then isn’t necessarily obsolete, but it feels increasingly distant. AI has fundamentally reshaped technology, and with its rapid progress comes both new opportunities and ethical concerns. This got me thinking: how can I stay ahead while ensuring AI is used responsibly? To explore this, I’ve compiled a list of AI tools, concepts, and technologies from A to Z that I plan to dive into.&lt;/p&gt;</description>
     </item>
     <item>
       <title>How I Built an AI Assistant for my Operating System</title>
-      <link>https://gucci-ninja.github.io/wordsandcode/post/archero/</link>
+      <link>http://localhost:1313/wordsandcode/post/archero/</link>
       <pubDate>Sun, 08 Sep 2024 21:35:59 -0400</pubDate>
-      <guid>https://gucci-ninja.github.io/wordsandcode/post/archero/</guid>
+      <guid>http://localhost:1313/wordsandcode/post/archero/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;archero how &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; I search &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; a file with the word skibidi&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;OpenAI: Use the following command to search &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; files with the word &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;skibidi&amp;#34;&lt;/span&gt; in their name in the current directory and its subdirectories:&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    find . -type f -iname &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;*skibidi*&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;why-build-an-ai-assistant-for-arch-linux&#34;&gt;Why build an AI assistant for Arch Linux&lt;/h3&gt;&#xA;&lt;p&gt;My operating system of choice is Arch Linux. I installed it around 6 years ago and have been too lazy to switch to anything else. Also, it’s worked pretty well for me all these years so I don’t have any reason to. Of course, there are times when I fall behind on updates and everything starts to break. Things start to break so much that even updating won’t solve them. Every time this happens, I spend a good 2-3 hours of my day troubleshooting. I reference documentation, arch forums and a more recent addition - ChatGPT.&lt;/p&gt;</description>
     </item>
     <item>
       <title>8 Tips for Effective Design Reviews</title>
-      <link>https://gucci-ninja.github.io/wordsandcode/post/design_review_tips/</link>
+      <link>http://localhost:1313/wordsandcode/post/design_review_tips/</link>
       <pubDate>Sat, 06 Jan 2024 11:07:55 -0500</pubDate>
-      <guid>https://gucci-ninja.github.io/wordsandcode/post/design_review_tips/</guid>
+      <guid>http://localhost:1313/wordsandcode/post/design_review_tips/</guid>
       <description>&lt;h3 id=&#34;8-tips-for-effective-design-reviews&#34;&gt;8 Tips for Effective Design Reviews&lt;/h3&gt;&#xA;&lt;p&gt;I had a recent design review that caused me to self-reflect and come up with some practical technical and non-technical tips on some aspects that may be overlooked in design reviews (lower-level designs in particular).&lt;/p&gt;&#xA;&lt;h3 id=&#34;technical-tips&#34;&gt;Technical Tips&lt;/h3&gt;&#xA;&lt;h4 id=&#34;1-the-s-in-solid&#34;&gt;1. The S in SOLID&lt;/h4&gt;&#xA;&lt;p&gt;In my lens, making code changes comes at the cost of introducing complexity. In order to reduce the complexity, I tend to lean towards modifying existing classes. I&amp;rsquo;ve learned that this is a bad practice and leads to classes being overloaded, diminishing readability and going against the single responsibility principle.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Flutter Web and Rive Animation Tutorial</title>
-      <link>https://gucci-ninja.github.io/wordsandcode/post/flutter_rive_tutorial/</link>
+      <link>http://localhost:1313/wordsandcode/post/flutter_rive_tutorial/</link>
       <pubDate>Tue, 31 May 2022 23:21:27 -0400</pubDate>
-      <guid>https://gucci-ninja.github.io/wordsandcode/post/flutter_rive_tutorial/</guid>
+      <guid>http://localhost:1313/wordsandcode/post/flutter_rive_tutorial/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://visitor-badge.glitch.me/badge?page_id=gucci-ninja-flutter-rive&#34; alt=&#34;visitors&#34;&gt;&#xA;&lt;img src=&#34;../../img/flutter/header.jpeg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Here is a beginner to intermediate tutorial for setting up a Flutter web app with Rive animations. I recently built a &lt;a href=&#34;https://waterslide-kyy1knexs-gucci-ninja.vercel.app/#/&#34;&gt;sliding tile game&lt;/a&gt; that incorporates Rive animations for the Flutter Hackathon. In this tutorial I’m going to show you how to add an animation to your Flutter web app and control it through user input.&lt;/p&gt;&#xA;&lt;p&gt;We will create a basketball animation that will get triggered each time the user clicks on a button.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kafka Summit Tech Talk</title>
-      <link>https://gucci-ninja.github.io/wordsandcode/post/kafka_summit/</link>
+      <link>http://localhost:1313/wordsandcode/post/kafka_summit/</link>
       <pubDate>Thu, 16 Sep 2021 22:08:17 -0500</pubDate>
-      <guid>https://gucci-ninja.github.io/wordsandcode/post/kafka_summit/</guid>
+      <guid>http://localhost:1313/wordsandcode/post/kafka_summit/</guid>
       <description>&lt;p&gt;For those interested, I gave a talk at the Kafka APAC Summit in 2021 on how to leverage Kafka for decentralized applications. The video is still up on confluent’s website but I went and added most of the topics I discussed here.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-a-decentralized-app-dapp&#34;&gt;What is a decentralized app (DApp)&lt;/h2&gt;&#xA;&lt;p&gt;Decentralized applications are programs that leverage a blockchain or peer-to-peer network to give users more control of their data. Decentralized applications are not really that new, you might have heard of some popular ones or even used them like BitTorrent. It uses the feeding and seeding model, where file sharing is made possible by users who volunteer to transfer their data to others and those users who propagate the data forwards by becoming seeders for the file.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Elastic Community Conference Tech Talk</title>
-      <link>https://gucci-ninja.github.io/wordsandcode/post/elastic_cc/</link>
+      <link>http://localhost:1313/wordsandcode/post/elastic_cc/</link>
       <pubDate>Fri, 02 Apr 2021 22:17:26 -0500</pubDate>
-      <guid>https://gucci-ninja.github.io/wordsandcode/post/elastic_cc/</guid>
+      <guid>http://localhost:1313/wordsandcode/post/elastic_cc/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Developing a Decentralized Application with Elasticsearch and QR Codes&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;introduction&#34;&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;p&gt;Last year thanksgiving I wrote an article about technologies that I was grateful for and I wrote about 26 technologies starting from the letter A all the way to Z and some of these I had used before and some of them I had planned to use in the future. When I was looking for my next project to work on I thought of going back to that list and picking three at random to to sort of build something with. I ended up choosing Elasticsearch, QR codes, and blockchain for this project. That’s the backstory of how I got here.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Your Guide to Arch Linux</title>
-      <link>https://gucci-ninja.github.io/wordsandcode/post/arch_linux/</link>
+      <link>http://localhost:1313/wordsandcode/post/arch_linux/</link>
       <pubDate>Wed, 17 Mar 2021 00:22:09 -0400</pubDate>
-      <guid>https://gucci-ninja.github.io/wordsandcode/post/arch_linux/</guid>
+      <guid>http://localhost:1313/wordsandcode/post/arch_linux/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;../../img/arch.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Hi everyone! This guide is meant to take you through the process of setting up Arch Linux. It&amp;rsquo;s more of a set of guidelines rather than strict procedure. I&amp;rsquo;m hoping to give new or potential users an idea of what it&amp;rsquo;s like to dual boot your computer with Arch Linux.&lt;/p&gt;&#xA;&lt;p&gt;I started using Arch in 2018 after getting tired of Ubuntu and since then I have dealt with my fair share of problems (corrupted ISO, problematic updates, bluetooth nightmares). However, I can say with confidence that using Arch has given me a better understanding and appreciation for operating systems as a whole. There are some things I used to take for granted - like the wifi menu that comes pre-installed with Windows or Mac OS - that I had to install and configure when it came to Arch Linux.&lt;/p&gt;</description>
     </item>
     <item>
       <title>How to start contributing to open source</title>
-      <link>https://gucci-ninja.github.io/wordsandcode/post/open_source/</link>
+      <link>http://localhost:1313/wordsandcode/post/open_source/</link>
       <pubDate>Mon, 18 Jan 2021 02:14:58 -0400</pubDate>
-      <guid>https://gucci-ninja.github.io/wordsandcode/post/open_source/</guid>
+      <guid>http://localhost:1313/wordsandcode/post/open_source/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://visitor-badge.glitch.me/badge?page_id=gucci-ninja-open-source&#34; alt=&#34;visitors&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../../img/james-harrison-vpOeXr5wmR4-unsplash.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Hi everyone! Recently I made my first open source contribution and wanted to share my experience as well as any tips I have for developers getting into open source development.&lt;/p&gt;&#xA;&lt;h3 id=&#34;step-1--finding-motivation&#34;&gt;Step 1 — Finding motivation&lt;/h3&gt;&#xA;&lt;p&gt;Due to COVID-19, I realized how much we rely on technology to bring people together. Then I thought about how much of that tech is made possible due to open source. I feel so grateful that I have access to and the potential to contribute to all this tech. So I wanted to give back to the open source community. I also wanted to be part of a community since I was feeling more disconnected while staying at home all the time. Being motivated was a key part in achieving my goal.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A-Z Tech to be thankful for in 2020</title>
-      <link>https://gucci-ninja.github.io/wordsandcode/post/thanksgiving/</link>
+      <link>http://localhost:1313/wordsandcode/post/thanksgiving/</link>
       <pubDate>Wed, 14 Oct 2020 20:46:12 -0400</pubDate>
-      <guid>https://gucci-ninja.github.io/wordsandcode/post/thanksgiving/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://visitor-badge.glitch.me/badge?page_id=gucci-ninja-thanksgiving&#34; alt=&#34;visitors&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../../img/tech.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Hi everyone! This Thanksgiving my mom did an activity with her grade 2’s where they went around their virtual classroom listing things they were thankful for from A-Z. This inspired me to write my very first Medium article on technologies that I’m thankful for this Thanksgiving :) These range from tech I’ve used to tech I am interested in using in the future.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/wordsandcode/post/thanksgiving/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://visitor-badge.glitch.me/badge?page_id=gucci-ninja-thanksgiving&#34; alt=&#34;visitors&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../../img/tech.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Hi everyone! This Thanksgiving my mom did an activity with her grade 2’s where they went around their virtual classroom listing things they were thankful for from A-Z. This inspired me to write my very first Medium article on technologies that I’m thankful for this Thanksgiving :) These range from tech I’ve used to tech I am interested in using in the future.&lt;/p&gt;&#xA;&lt;h3 id=&#34;aws&#34;&gt;AWS&lt;/h3&gt;&#xA;&lt;p&gt;I started using Amazon’s web services earlier this year to host a project. It was really easy to get started since there were suggestions on what service to use based on your needs. I opted for their virtual cloud computing service, EC2. I chose from the free tier Linux options and in minutes my team and I had a server running in Ohio ready for use.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Co-op</title>
-      <link>https://gucci-ninja.github.io/wordsandcode/post/getting_started/</link>
+      <link>http://localhost:1313/wordsandcode/post/getting_started/</link>
       <pubDate>Fri, 03 Aug 2018 02:31:17 -0400</pubDate>
-      <guid>https://gucci-ninja.github.io/wordsandcode/post/getting_started/</guid>
+      <guid>http://localhost:1313/wordsandcode/post/getting_started/</guid>
       <description>&lt;p&gt;Since my co-op starts next week I thought it would be the perfect time to set up my blog so I can document my experiences. I hope I can capture what I learn every week and reflect on my time as an intern. Maybe in a year I will be showing this to the new set of co-ops.&lt;/p&gt;&#xA;&lt;h3 id=&#34;my-first-day-at-bell&#34;&gt;My First Day at Bell&lt;/h3&gt;&#xA;&lt;p&gt;I left my house early like any responsible employee on their first day of work and arrived more than half an hour early. After lots of waiting, the new interns (about 5 of us) were met by the current ones (4). My first impression was that the people at Bell are really welcoming. Everyone wants you to succeed and learn new things along the way.&lt;/p&gt;</description>
     </item>
   </channel>

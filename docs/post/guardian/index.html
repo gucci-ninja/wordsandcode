@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en-us">
+  <head><script src="/wordsandcode/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=wordsandcode/livereload" data-no-instant defer></script>
+    <title>Building Deterministic Guardrails for Autonomous Agents // Words &amp; Code</title>
+    <link rel="shortcut icon" href="https://pngimage.net/wp-content/uploads/2018/05/bullet-style-png-3-300x200.png" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.154.5">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Suhavi Sandhu" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/wordsandcode/css/main.min.a7dfeaabca38e15028cf2fc45c1eca64f842bd62529f0bf081a55d5270f9d37a.css" />
+    
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Building Deterministic Guardrails for Autonomous Agents">
+  <meta name="twitter:description" content="The Problem: Reasonableness Gap
+This is a problem I have been thinking about for some time now. Modern distributed systems no longer just serve human users, they interact with autonomous agents capable of generating adversarial, poorly scoped or ‘hallucinated’ requests at scale. Traditional access control models like RBAC, IAM policies assume that callers are acting in good-faith and fail to encode reasonableness as a first-class concern.
+Most access control systems are able to answer basic questions like">
+
+    <meta property="og:url" content="http://localhost:1313/wordsandcode/post/guardian/">
+  <meta property="og:site_name" content="Words & Code">
+  <meta property="og:title" content="Building Deterministic Guardrails for Autonomous Agents">
+  <meta property="og:description" content="The Problem: Reasonableness Gap
+This is a problem I have been thinking about for some time now. Modern distributed systems no longer just serve human users, they interact with autonomous agents capable of generating adversarial, poorly scoped or ‘hallucinated’ requests at scale. Traditional access control models like RBAC, IAM policies assume that callers are acting in good-faith and fail to encode reasonableness as a first-class concern.
+Most access control systems are able to answer basic questions like">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2026-01-26T16:10:00-08:00">
+    <meta property="article:modified_time" content="2026-01-26T16:10:00-08:00">
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="/wordsandcode/"><img class="app-header-avatar" src="/wordsandcode/img/avatar.jpg" alt="Suhavi Sandhu" /></a>
+      <span class="app-header-title">Words &amp; Code</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/wordsandcode/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/about/">About</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/design_review_tips/">8 Tips for Effective Design Reviews</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/thanksgiving/">A-Z Tech to be thankful for in 2020</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/ai_abc/">AI ABCs</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/guardian/">Building Deterministic Guardrails for Autonomous Agents</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/elastic_cc/">Elastic Community Conference Tech Talk</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/flutter_rive_tutorial/">Flutter Web and Rive Animation Tutorial</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/archero/">How I Built an AI Assistant for my Operating System</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/open_source/">How to start contributing to open source</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/kafka_summit/">Kafka Summit Tech Talk</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/ai_search/">Using FAISS for local semantic search</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/wordsandcode/post/arch_linux/">Your Guide to Arch Linux</a>
+      </nav>
+      <p>Software engineer passionate about building powerful, useful and open source systems. Thanks for dropping by! 💛</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/gucci-ninja" target="_blank" rel="noreferrer noopener me">
+            <svg class="icon icon-github" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>github</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+        
+          <a href="https://twitter.com/SuhaviSandhu" target="_blank" rel="noreferrer noopener me">
+            <svg class="icon icon-twitter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>twitter</title><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+          </a>
+        
+          <a href="https://www.linkedin.com/in/suhavi/" target="_blank" rel="noreferrer noopener me">
+            <svg class="icon icon-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>linkedin</title><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Building Deterministic Guardrails for Autonomous Agents</h1>
+      <div class="post-meta">
+        <div>
+          <svg class="icon icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Jan 26, 2026
+        </div>
+        <div>
+          <svg class="icon icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>clock</title><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          7 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p><strong>The Problem: Reasonableness Gap</strong></p>
+<p>This is a problem I have been thinking about for some time now. Modern distributed systems no longer just serve human users, they interact with autonomous agents capable of generating adversarial, poorly scoped or ‘hallucinated’ requests at scale. Traditional access control models like RBAC, IAM policies assume that callers are acting in good-faith and fail to encode reasonableness as a first-class concern.</p>
+<p>Most access control systems are able to answer basic questions like</p>
+<blockquote>
+<p>Who are you, and what are you allowed to do?</p>
+</blockquote>
+<p>They don’t answer</p>
+<blockquote>
+<p>Is this request reasonable, safe or appropriate in context?</p>
+</blockquote>
+<p><strong>My Personal Experience as an Engineer</strong></p>
+<p>In my day-to-day, I’ve started noticing a predictable pattern. I’ll be talking about a carefully considered design with clear boundaries and fail-safes and the question will inevitably come up: Can we just use an LLM for this instead?</p>
+<p>I usually feel reluctant when this happens, not because I hate new tech but because I have read too many horror stories. The most notable one that comes to mind is the Replit incident in 2025 where an autonomous agent ended up deleting a production database.</p>
+<p>If I’m being completely honest, my reluctance also comes from a place of guilt. I’ve fallen into the trap and manipulated agentic bots to do the ‘dirty work’ for me, tasks I would never officially approve an agent to handle because I know deep down, the guard rails don’t exist.</p>
+<p>I waited for some time for a framework to come along to fix this problem but today, I want to share a solution that I think can help instill control back into the picture.</p>
+<p><strong>The Solution: Contract-Based Access Control</strong></p>
+<p>I have been experimenting with the idea of contract-based access control that treats ‘reasonableness’ as a first-class citizen through agentic gateways. I took a lot of inspiration from the deterministic and auditable nature of Solidity smart contracts, shifting the security boundary from the caller to the data custodian. In this architecture:</p>
+<ul>
+<li>Callers are explicitly untrusted (zero trust policy)</li>
+<li>Intent is mediated, not accepted, through state-aware contracts</li>
+<li>Authority is defined and enforced by custodians of data</li>
+<li>Decisions are deterministic, auditable, and non-inferential. No more vibing y’all!</li>
+</ul>
+<p>Disclaimer - this system won’t apply in every case. But it’s important to consider when callers are autonomous agents, requests can be vague, data is highly sensitive or the cost of messing up is severe.</p>
+<p><strong>The Big Picture and Major Players</strong></p>
+<p><a href="https://mermaid.live/edit#pako:eNqNVNFu2jAU_RXLDxPVUkbKIJCHShlNJ6QCFdBpm3hxkwt4TWxmO9Cu6r_vOiZQBO3GA3Lsc-499_gkzzSRKdCQavhdgEjgirOFYvlMEPytmDI84SsmDIkWgP9Mk6gwUshcFtrtHUO_MgMb9lSCLYIn1dYxtieFUSwpK-_WEyMVHGNjseACDpDxmmUFM1yK7ekbHWS2o-Hylp9QHd32LWbK1AJQAqg1T7CcAw6lASLXoNxEnkWHxK-T_nAaD6cOVB6dX15uhw1JX6zlA5AoKQXWuDDWw4-2Lcv12XHxLdPbDRiSizrpjYbTcdSbknE8Gd3cTfujoSNu4dhyj78GkyxJUhk0l4qwsr-jVMDz1zp3dqYw54I7tdowe3Macmav8N9yZRaSplMbf5-SaDKJB19ufpyUarFOqYIM1tb_OQrQ5ANZKY6aYY1W6VeaZXYguZ_nhWH3GZSjwiNqZ4a9I9HFIySf6yT-Ft3cRadsrEDbWEGt8tGr2njE3eKZozrCgbIrSLi2Dsr7X4Ce1tZcZmVENfmE4_4uuILcTvdfjrasXowYiQf9yeStq7fIaLUCkW7TVk2QOiff6VSmNiRt7DO8Ho178cB2q80Zz86TTGpIt7OyDF-SLJMbSN3GoY7yjbiWasNUWo4J2pANN0sCj5AUZagMvg5iT0bKgXWTIklA6-PqtryTeQCBTAMZO0c1GUDK2T7pp_k7UMVLSU3BHJT9-BFezVpWvgLBT826rzYGe8W2BsZDY1IwHFhEV1VESj26UDyloVEFeDQHlTP7SJ8tZEbNErMwoyEuU6YeZnQmXpCDX6SfUuYVTclisaThnKEsjxYrzHr1pd7t4gQpqJ4shKFhq90qi9DwmT7SsNnt1rtB4AfNbtBpdxqBR59o2Kh3_G4Hz4JGs3nR9RutF4_-Kdv6db_hd_yg3ei2L9pBx3_5C0mKB5I"><img src="https://mermaid.ink/img/pako:eNqNVNFu2jAU_RXLDxPVUkbKIJCHShlNJ6QCFdBpm3hxkwt4TWxmO9Cu6r_vOiZQBO3GA3Lsc-499_gkzzSRKdCQavhdgEjgirOFYvlMEPytmDI84SsmDIkWgP9Mk6gwUshcFtrtHUO_MgMb9lSCLYIn1dYxtieFUSwpK-_WEyMVHGNjseACDpDxmmUFM1yK7ekbHWS2o-Hylp9QHd32LWbK1AJQAqg1T7CcAw6lASLXoNxEnkWHxK-T_nAaD6cOVB6dX15uhw1JX6zlA5AoKQXWuDDWw4-2Lcv12XHxLdPbDRiSizrpjYbTcdSbknE8Gd3cTfujoSNu4dhyj78GkyxJUhk0l4qwsr-jVMDz1zp3dqYw54I7tdowe3Macmav8N9yZRaSplMbf5-SaDKJB19ufpyUarFOqYIM1tb_OQrQ5ANZKY6aYY1W6VeaZXYguZ_nhWH3GZSjwiNqZ4a9I9HFIySf6yT-Ft3cRadsrEDbWEGt8tGr2njE3eKZozrCgbIrSLi2Dsr7X4Ce1tZcZmVENfmE4_4uuILcTvdfjrasXowYiQf9yeStq7fIaLUCkW7TVk2QOiff6VSmNiRt7DO8Ho178cB2q80Zz86TTGpIt7OyDF-SLJMbSN3GoY7yjbiWasNUWo4J2pANN0sCj5AUZagMvg5iT0bKgXWTIklA6-PqtryTeQCBTAMZO0c1GUDK2T7pp_k7UMVLSU3BHJT9-BFezVpWvgLBT826rzYGe8W2BsZDY1IwHFhEV1VESj26UDyloVEFeDQHlTP7SJ8tZEbNErMwoyEuU6YeZnQmXpCDX6SfUuYVTclisaThnKEsjxYrzHr1pd7t4gQpqJ4shKFhq90qi9DwmT7SsNnt1rtB4AfNbtBpdxqBR59o2Kh3_G4Hz4JGs3nR9RutF4_-Kdv6db_hd_yg3ei2L9pBx3_5C0mKB5I?type=png" alt=""></a></p>
+<h3 id="1-autonomous-agent-the-untrusted-caller">1. Autonomous Agent (The Untrusted Caller)</h3>
+<ul>
+<li><strong>Role:</strong> The Subject of the contract.</li>
+<li><strong>Technology:</strong> OpenAI, Google Gemini, Claude</li>
+<li><strong>Description:</strong> An autonomous, goal-oriented actor (LLM-based bot, automated script, or service) that generates <strong>Intent</strong>. Because it is &ldquo;untrusted&rdquo; and &ldquo;agentic,&rdquo; its requests are assumed to be stochastic (probabilistic) and potentially out-of-scope. It doesn&rsquo;t just send commands; it attempts to achieve outcomes.</li>
+</ul>
+<h3 id="2-agentic-gateway-the-pep---policy-enforcement-point">2. Agentic Gateway (The PEP - Policy Enforcement Point)</h3>
+<ul>
+<li><strong>Role:</strong> The Orchestrator and Shield.</li>
+<li><strong>Technology:</strong> Python, JavaScript,</li>
+<li><strong>Description:</strong> A high-performance shim that sits directly on the request path. It is responsible for <strong>Interception</strong> and <strong>Enforcement</strong>. It does not make the decision itself; instead, it &ldquo;assembles the case&rdquo; by gathering the Contract and Context, then strictly enforces the Engine&rsquo;s verdict. It is <strong>fail-closed</strong>, meaning if any part of the evaluation fails, the request is killed.</li>
+</ul>
+<h3 id="3-contract-store-the-legislature">3. Contract Store (The Legislature)</h3>
+<ul>
+<li><strong>Role:</strong> Static Semantics.</li>
+<li><strong>Technology:</strong> YAML, or a more rigid Solidity-like contract language that I am working on</li>
+<li><strong>Description:</strong> A version-controlled repository of <strong>Contract Definitions</strong> (YAML). These define the &ldquo;laws&rdquo; of the system as dictated by data custodians. They encode types, allowed actions, and hard constraints. Unlike IAM roles, these are resource-centric and describe the &ldquo;Reasonable Boundaries&rdquo; for any actor attempting to interact with a specific data set.</li>
+</ul>
+<h3 id="4-contract-evaluation-engine-the-pdp---policy-decision-point">4. Contract Evaluation Engine (The PDP - Policy Decision Point)</h3>
+<ul>
+<li><strong>Role:</strong> The Pure-Function Judge.</li>
+<li><strong>Technology:</strong> n8n</li>
+<li><strong>Description:</strong> A deterministic, <strong>non-inferential</strong> engine. It is a &ldquo;pure function,&rdquo; meaning it performs no I/O itself. It receives the Intent, Contract, and Context as a single bundle and calculates the outcome. Because it is pure, it can be mathematically verified and is immune to side-effect bugs.</li>
+</ul>
+<h3 id="5-control-pit-the-governance-ledger">5. Control Pit (The Governance Ledger)</h3>
+<ul>
+<li><strong>Role:</strong> Ledger for events.</li>
+<li><strong>Technology:</strong> redis</li>
+<li><strong>Description:</strong> A specialized event-store that tracks agent behavior over time. It transforms &ldquo;Point-in-time&rdquo; requests into &ldquo;Context-aware&rdquo; history, allowing the system to enforce constraints across multiple interactions (e.g., rate limits, daily quotas, or behavioral drift).</li>
+</ul>
+<h3 id="6-target-service-the-protected-resource">6. Target Service (The Protected Resource)</h3>
+<ul>
+<li><strong>Role:</strong> Functional Execution.</li>
+<li><strong>Technology:</strong> API, microservice, database</li>
+<li><strong>Description:</strong> In this architecture, the Target Service is &ldquo;dumb&rdquo; regarding reasonableness—it assumes that if a request reached it, the Gateway has already verified the intent as safe and authorized. This keeps the backend code clean and focused on features rather than security guardrails.</li>
+</ul>
+<p><strong>What it looks like in practice</strong></p>
+<p>I’m usually not one for theories and don’t assume an idea will work until I’ve actually gotten it up and running myself. So I built a lightweight POC that intercepts calls from autonomous agents to a mock service I set up.</p>
+<ol>
+<li>Our LLM of choice is <strong>ollama</strong> since I wanted a locally running instance and didn’t want to spend money.</li>
+<li>The agentic gateway is a simple <strong>Python server</strong> that pulls relevant contracts based on the user request and calls the contract evaluation engine</li>
+<li>The contract is written in Solidity-like semantics. I didn’t have time to build my own contract language so <strong>YAML</strong> for now</li>
+<li>The evaluation engine is an <strong>n8n workflow</strong> that exposes a webhook to run our reasoning logic against user intent.</li>
+<li>The intent evaluation gets published to <strong>redis</strong> where it can be used for auditing or even as a reference to understand how certain agents have been interacting with the system.</li>
+<li>Finally, if the intention is approved by the workflow, it is allowed to reach the service, a simple lightweight <strong>Python app</strong> for making purchases.</li>
+</ol>
+<p>The autonomous agent is programmed to do one task: Purchase 10 laptops.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">---</span> <span style="color:#960050;background-color:#1e0010">🤖</span> STARTING TRUE AUTONOMOUS AGENT <span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span> ATTEMPT <span style="color:#ae81ff">1</span> <span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>[AGENT REASONING]: {<span style="color:#e6db74">&#39;item&#39;</span>: <span style="color:#e6db74">&#39;laptop&#39;</span>, <span style="color:#e6db74">&#39;quantity&#39;</span>: <span style="color:#ae81ff">10</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[NETWORK] Executing: POST <span style="color:#f92672">/</span>purchase {<span style="color:#e6db74">&#39;item&#39;</span>: <span style="color:#e6db74">&#39;laptop&#39;</span>, <span style="color:#e6db74">&#39;qty&#39;</span>: <span style="color:#ae81ff">10</span>}
+</span></span><span style="display:flex;"><span>[GATEWAY VERDICT]: <span style="color:#960050;background-color:#1e0010">❌</span> REJECTED: Agents cannot buy more than <span style="color:#ae81ff">5</span> items at once
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span> ATTEMPT <span style="color:#ae81ff">2</span> <span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>[AGENT REASONING]: {<span style="color:#e6db74">&#39;reasoning&#39;</span>: <span style="color:#e6db74">&#39;The system only allows buying 5 items at a time, so I will split my initial order into multiple requests of 5 laptops each.&#39;</span>, <span style="color:#e6db74">&#39;item&#39;</span>: <span style="color:#e6db74">&#39;laptop&#39;</span>, <span style="color:#e6db74">&#39;quantity&#39;</span>: <span style="color:#ae81ff">5</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[NETWORK] Executing: POST <span style="color:#f92672">/</span>purchase {<span style="color:#e6db74">&#39;item&#39;</span>: <span style="color:#e6db74">&#39;laptop&#39;</span>, <span style="color:#e6db74">&#39;qty&#39;</span>: <span style="color:#ae81ff">5</span>}
+</span></span><span style="display:flex;"><span>[GATEWAY VERDICT]: <span style="color:#960050;background-color:#1e0010">❌</span> REJECTED: Agents cannot spend more than <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#ae81ff">1500</span> per request
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span> ATTEMPT <span style="color:#ae81ff">3</span> <span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>[AGENT REASONING]: {<span style="color:#e6db74">&#39;reasoning&#39;</span>: <span style="color:#e6db74">&#39;I need to buy laptops, but the system rejected two orders because they were too expensive. I will try again with a smaller quantity, this time ordering 4 laptops.&#39;</span>, <span style="color:#e6db74">&#39;item&#39;</span>: <span style="color:#e6db74">&#39;laptop&#39;</span>, <span style="color:#e6db74">&#39;quantity&#39;</span>: <span style="color:#ae81ff">4</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[NETWORK] Executing: POST <span style="color:#f92672">/</span>purchase {<span style="color:#e6db74">&#39;item&#39;</span>: <span style="color:#e6db74">&#39;laptop&#39;</span>, <span style="color:#e6db74">&#39;qty&#39;</span>: <span style="color:#ae81ff">4</span>}
+</span></span><span style="display:flex;"><span>[GATEWAY VERDICT]: <span style="color:#960050;background-color:#1e0010">❌</span> REJECTED: Agents cannot spend more than <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#ae81ff">1500</span> per request
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span> ATTEMPT <span style="color:#ae81ff">4</span> <span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>[AGENT REASONING]: {<span style="color:#e6db74">&#39;reasoning&#39;</span>: <span style="color:#e6db74">&#34;Okay, four laptops would cost me more than $1500. Let&#39;s try ordering a single laptop first.&#34;</span>, <span style="color:#e6db74">&#39;item&#39;</span>: <span style="color:#e6db74">&#39;laptop&#39;</span>, <span style="color:#e6db74">&#39;quantity&#39;</span>: <span style="color:#ae81ff">1</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[NETWORK] Executing: POST <span style="color:#f92672">/</span>purchase {<span style="color:#e6db74">&#39;item&#39;</span>: <span style="color:#e6db74">&#39;laptop&#39;</span>, <span style="color:#e6db74">&#39;qty&#39;</span>: <span style="color:#ae81ff">1</span>}
+</span></span><span style="display:flex;"><span>[GATEWAY VERDICT]: <span style="color:#960050;background-color:#1e0010">✅</span> SUCCESS: Action permitted
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span> GOAL ACHIEVED: Agent navigated the contract successfully<span style="color:#f92672">.</span> <span style="color:#f92672">---</span>
+</span></span></code></pre></div><p><img src="../../img/ledger2.png" alt="">
+<img src="../../img/ledger1.png" alt=""></p>
+<p>n8n Workflow</p>
+<p><img src="../../img/workflow.png" alt=""></p>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>Building this PoC confirmed a few things that I had suspected for a while, but seeing them in the &ldquo;Reasoning Ledger&rdquo; made them undeniable:</p>
+<ul>
+<li><strong>Separation of Concerns:</strong> In this model, the developer of the Store API doesn&rsquo;t need to know anything about &ldquo;Agent Spending Limits.&rdquo; They focus on features. The <strong>Data Custodian</strong> defines the &ldquo;Reasonableness&rdquo; in the YAML contract. We decoupled <em>Functional Logic</em> from <em>Governance Logic</em>.</li>
+<li><strong>Structured Feedback is &ldquo;Agentic&rdquo; UX:</strong> Standard security treats &ldquo;403 Forbidden&rdquo; as a brick wall. In the Agentic Era, a 403 must be a <strong>Mediation Point</strong>. By returning specific contract violations, we allow the agent to self-correct. We move from &ldquo;The system is broken&rdquo; to &ldquo;The agent is learning the boundaries.&rdquo;</li>
+<li><strong>Determinism is the Only Safe Ground:</strong> There is a lot of hype around using &ldquo;LLMs to watch LLMs.&rdquo; My experience building this taught me that for security, you want the &ldquo;Hard Physics&rdquo; of deterministic code. When the cost of failure is a deleted production stack, you don&rsquo;t want a &ldquo;probabilistic guess&rdquo;—you want a pure function that says False.</li>
+<li><strong>Context is the Missing Ingredient:</strong> Most IAM failures happen because the system only knows <em>who</em> is asking, not <em>what is happening</em> in the world. By fetching &ldquo;Reality&rdquo; and eventually &ldquo;History&rdquo;  before the evaluation, we close the gap that autonomous agents usually exploit.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>I started this project because I was tired of the anxiety of watching autonomous agents operate in &ldquo;God Mode&rdquo; with nothing but a raw API key and a prayer. I would call this either contract or intent-based access control (CBAC? IBAC? I’m not good with names), and I hope it represents a shift in how we think about infrastructure. I want to continue making it robust and work towards a ‘plug-and-play’ framework that you can put between any existing service to protect it.</p>
+<p>If you’re interested I have pushed everything to a <a href="https://github.com/gucci-ninja/Guardian">Github repository</a>.</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
