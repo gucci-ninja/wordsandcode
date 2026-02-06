@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Words &amp; Code</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Jan 2026 16:10:00 -0800</lastBuildDate>
+    <lastBuildDate>Fri, 06 Feb 2026 07:56:42 -0800</lastBuildDate>
     <atom:link href="http://localhost:1313/wordsandcode/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Part 2: Building Deterministic Guardrails for Autonomous Agents</title>
+      <link>http://localhost:1313/wordsandcode/post/guardian_v2/</link>
+      <pubDate>Fri, 06 Feb 2026 07:56:42 -0800</pubDate>
+      <guid>http://localhost:1313/wordsandcode/post/guardian_v2/</guid>
+      <description>&lt;p&gt;In my previous &lt;a href=&#34;https://gucci-ninja.github.io/wordsandcode/post/guardian/&#34;&gt;post&lt;/a&gt;, I introduced the concept of &lt;strong&gt;Contract-Based Access Control (CBAC)&lt;/strong&gt; as a way to bridge the &amp;ldquo;reasonableness gap&amp;rdquo; when autonomous agents interact with APIs. The initial idea was good, but feedback and testing revealed a deeper problem: adding context once is not enough. Autonomous agents have a tendency to adapt around the rules.&lt;/p&gt;&#xA;&lt;p&gt;Traditional IAM is binary: you have the key, or you don&amp;rsquo;t. My V1 PoC added context, but it was still a &amp;ldquo;point-in-time&amp;rdquo; check. As agents become more autonomous, they find the gaps between the rules. I’ve identified four critical categories of misuse that need to be addressed:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Building Deterministic Guardrails for Autonomous Agents</title>
       <link>http://localhost:1313/wordsandcode/post/guardian/</link>
